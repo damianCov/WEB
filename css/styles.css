@@ -270,6 +270,11 @@ nav ul li ul li a:hover {
         margin-left: 0px;
     }
 }
+@media (max-width: 480px) {
+    .slider h1 {
+       font-size: small;
+    }
+}
 
 
 /* Ajuste de Highlights en Index */
@@ -1058,18 +1063,17 @@ form select {
     }
 }
 
-/* Ajustar el espaciado superior del título */
-/* Estilo del título principal */
+/* ===== Estilos del título principal ===== */
 .main-title {
     font-size: 2.2rem;
     font-weight: bold;
-    text-align: center;
+    text-align: center; /* 🔹 Centrado por defecto */
     color: #2a7f3a;
-    margin-top: 20px;
+    margin-top: 145px;
+    margin-left: 0; /* Eliminado para evitar desajustes */
     line-height: 1.5;
     position: relative;
     overflow: hidden;
-    
 }
 
 /* Animación de los emojis dentro del título */
@@ -1078,6 +1082,7 @@ form select {
     animation: bounce 2s infinite;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    
 }
 
 /* Animación de rebote */
@@ -1101,10 +1106,11 @@ form select {
     display: block;
     width: 300px;
     height: 4px;
-    margin: 10px auto 0;
+    margin: 10px auto 0; /* 🔹 Centramos la línea decorativa */
     background: linear-gradient(to right, #ff6f00, #2a7f3a);
     border-radius: 5px;
     animation: slideIn 1s ease-out;
+    transition: margin-left 0.3s ease; /* 🔹 Suaviza el cambio de alineación */
 }
 
 /* Animación de la línea decorativa */
@@ -1113,142 +1119,42 @@ form select {
         width: 0;
     }
     to {
-        width: 200px;
+        width: 300px;
     }
 }
-/* Responsividad */
+
+/* ===== Responsividad ===== */
 @media (max-width: 768px) {
     .main-title {
-        text-align: left; /* Alinear a la izquierda */
-        padding-left: 0px; /* Añade espaciado a la izquierda */
-        font-size: 1.8rem;
-    }
+        font-size: 1.4rem; /* Reduce el tamaño */
+        margin-top: 155px;
 
-    .main-title h1 {
-        font-size: 1.8rem; /* Reduce el tamaño del título */
-        text-align: left; /* Alinear a la izquierda */
-    }
-
-    .main-title p {
-        font-size: 1rem; /* Reduce el tamaño del párrafo */
     }
 
     .main-title::after {
-        margin-left: 10px; /* Alinear la línea decorativa con el texto */
-        margin-right: 0;
+        width: 250px; /* Reduce el ancho de la línea decorativa */
     }
 }
 
+/* ✅ Corrección para pantallas menores a 480px */
 @media (max-width: 480px) {
-    .main-title h1 {
-        font-size: 1.5rem; /* Ajusta aún más el tamaño del título */
-        text-align: left; /* Alinear a la izquierda */
+    .main-title {
+        text-align: left !important; /* 🔹 Asegura alineación a la izquierda */
+        font-size: 1.0rem;
+        margin-left: 5px;
+        margin-top: 160px;
     }
 
-    .main-title p {
-        font-size: 0.9rem; /* Ajusta el tamaño del párrafo */
+    .main-title::after {
+        width: 250px; /* Reduce la línea decorativa */
+        margin-left: 10px; /* 🔹 Alinea la línea decorativa con el título */
     }
-
-    .main-title .after {
-        width: 150px; /* Reduce el ancho de la línea decorativa */
+    .main-title .emoji {
+        font-size: 0.7rem;
     }
-    .main-title .emoji{
-        text-align: left;
-    }
-}
-.main-title h1 {
-    font-size: 2.3rem; /* Tamaño del título */
-    margin: 10px 0;
-    font-family: "Arial", sans-serif;
-    font-weight: bold;
-}
-
-.main-title p {
-    font-size: 1.2rem; /* Tamaño del párrafo */
-    margin: 5px 0;
-    font-family: "Arial", sans-serif;
-    color: #333; /* Color secundario del texto */
-}
-/* Ajustar el espaciado superior del título */
-.main-title {
-    margin-top: 120px; /* Espacio suficiente para evitar la superposición con el encabezado */
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 1px 20px;
-    color: #057446;
     
 }
 
-.main-title h1 {
-    font-size: 2.3rem;
-    margin: 10px 0;
-    font-family: "Arial", sans-serif;
-    font-weight: bold;
-}
-
-.main-title p {
-    font-size: 1.2rem;
-    margin: 1px 0;
-    text-align: left;
-    font-family: "Arial", sans-serif;
-    color: #333;
-}
-/* Ajustes para el título principal y su descripción alineados con el slider */
-.main-title {
-    text-align: center;
-    margin: 45px;
-    margin-top: 140px; /* Espacio superior */
-    margin-bottom: 0.5px; /* Espacio inferior */
-    padding: 10px;
-    color: #057446;
-}
-
-.main-title h1 {
-    font-size: 2.3rem;
-    margin: 10px 0;
-    font-family: "Arial", sans-serif;
-    font-weight: bold;
-}
-
-/* Contenedor del texto descriptivo */
-.main-title p {
-    max-width: 80%; /* Igual ancho que el slider */
-    margin: 0px auto; /* Centrado */
-    text-align: center;
-    font-size: 1rem;
-    line-height: 1.0;
-    color: #555;
-}
-
-/* Responsividad del texto */
-@media (max-width: 768px) {
-    .main-title h1 {
-        font-size: 1.4rem; /* Reduce el tamaño del título */
-        text-align: left;
-        margin-left: 0px;
-        max-width: 100%;
-    }
-
-    .main-description {
-        font-size: 1.1rem; /* Reduce el tamaño del texto */
-        line-height: 1.4; /* Ajusta el espaciado */
-        text-align: left;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-title h1 {
-        font-size: 1.5rem; /* Más pequeño en pantallas pequeñas */
-        text-align: left;
-        margin-left: 0px;
-        max-width: 100%;
-    }
-
-    .main-description {
-        font-size: 0.85rem; /* Texto más pequeño */
-        text-align: left;
-    }
-}
 /* General */
 body {
     font-family: Arial, sans-serif;
