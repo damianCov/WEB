@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Bellotas - Inicio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+</head>
+<body>
+    <a href="https://wa.me/1162488210" class="whatsapp-float" target="_blank">
+        <img src="images/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+    <header>
+        <div class="header-container">
+            <nav class="nav">
+                <img src="images/logo.png" alt="Logo Universo Bellotas" class="logo">
+                <button class="menu-toggle" aria-label="Abrir/Cerrar menú" onclick="toggleMenu()">&#9776;🔍</button>
+
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                    <li class="submenu">
+                        <a href="#" onclick="toggleSubMenu(event)">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="submenu-items">
+                            <li><a href="animaciones.html">Animaciones</a></li>
+                            <li><a href="colegios-instituciones.html">Escuelas</a></li>
+                            <li><a href="corporativos.html">Corporativos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <div class="social-links2">
+                        <li><a href="https://instagram.com/universobellotas" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.youtube.com/user/UniversoBellotas" target="_blank"><img src="images/youtube.png" alt="YouTube"></a></li>
+                        <li><a href="https://ar.pinterest.com/UniversoBellotas/" target="_blank"><img src="images/pinterest.png" alt="Pinterest"></a></li>
+                        <li><a href="https://www.linkedin.com/company/universo-bellotas/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+                        <li><a href="https://es-la.facebook.com/universobellotas" target="_blank"><img src="images/facebook.png" alt="Facebook"></a></li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+       <!-- Modal de Confirmación -->
+<div id="confirmation-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Consulta Enviada ✨</h2>
+            <button class="close-modal" onclick="closeConfirmationModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>¡Gracias por tu consulta! Nos pondremos en contacto contigo a la brevedad.</p>
+            <p>Te invitamos a seguir navegando y conociendo el sitio. También a conocer y seguirnos en  nuestras redes sociales.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="button-close" onclick="closeConfirmationModal()">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: <a href="#" id="open-contact-modal-footer">info@universobellotas.com.ar</a></p>
+            <p>WhatsApp: <a href="https://wa.me/1162488210">11-6248-8210</a></p>
+            <!-- Enlace para abrir el modal de Preguntas Frecuentes -->
+            <p>Acceder a: <a href="#" id="open-faq-modal">Preguntas Frecuentes</a></p>
+        </div>
+        <p class="copyright">&copy; 2024 Universo Bellotas. Todos los derechos reservados.</p>
+    </footer>    
+    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const confirmationModal = document.getElementById("confirmation-modal");
+        
+            if (confirmationModal) {
+                // Mostrar el modal automáticamente al cargar la página
+                confirmationModal.style.display = "block";
+        
+                // Cerrar el modal al hacer clic en el botón "Cerrar"
+                document.querySelector(".button-close").addEventListener("click", function () {
+                    closeConfirmationModal();
+                });
+        
+                // Cerrar el modal al hacer clic fuera de él
+                window.addEventListener("click", function (event) {
+                    if (event.target === confirmationModal) {
+                        closeConfirmationModal();
+                    }
+                });
+            }
+        });
+        
+        // Función para cerrar el modal y redirigir a la página principal
+        function closeConfirmationModal() {
+            const confirmationModal = document.getElementById("confirmation-modal");
+            confirmationModal.style.display = "none";
+            window.location.href = "index.html"; // Redirigir a la página de inicio
+        }
+        </script>
+        
+</html>
