@@ -285,7 +285,6 @@ nav ul li ul li a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #e7dddda0;
     max-width: 280px; /* Mantiene el ancho fijo */
     margin: 0 auto;
 }
