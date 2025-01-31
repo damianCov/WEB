@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Universo Bellotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+    <script src="js/faq-modal.js" defer></script>
+    <script src="js/faq-modal.js" defer></script>
+
+</head>
+<body>
+    <a href="https://wa.me/1162488210" class="whatsapp-float" target="_blank">
+        <img src="images/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+    <header>
+        <div class="header-container">
+            <nav class="nav">
+                <img src="images/logo.png" alt="Logo Universo Bellotas" class="logo">
+                <button class="menu-toggle" aria-label="Abrir/Cerrar menú">&#9776;🔍</button>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                    <li class="submenu">
+                        <a href="#" onclick="toggleSubMenu(event)">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="submenu-items">
+                            <li><a href="animaciones.html">Animaciones</a></li>
+                            <li><a href="colegios-instituciones.html">Escuelas</a></li>
+                            <li><a href="corporativos.html">Corporativos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html" id="open-contact-modal">Contacto</a></li>
+                    <div class="social-links2">
+                        <li><a href="https://instagram.com/universobellotas" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.youtube.com/user/UniversoBellotas" target="_blank"><img src="images/youtube.png" alt="YouTube"></a></li>
+                        <li><a href="https://ar.pinterest.com/UniversoBellotas/" target="_blank"><img src="images/pinterest.png" alt="Pinterest"></a></li>
+                        <li><a href="https://www.linkedin.com/company/universo-bellotas/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+                        <li><a href="https://es-la.facebook.com/universobellotas" target="_blank"><img src="images/facebook.png" alt="Facebook"></a></li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<!-- Modal de Contacto -->
+<div id="contact-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Enviá tu consulta</h2>
+        <p>
+            Completa el formulario con los datos necesarios y nos pondremos en contacto contigo a la brevedad.
+            Estamos aquí para ayudarte con cualquier consulta sobre nuestros servicios.
+        </p>
+        <form id="contact-form" action="send_email.php" method="POST">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <span class="error-message" id="error-nombre"></span>
+            </div>
+            <div>
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <span class="error-message" id="error-apellido"></span>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="error-email"></span>
+            </div>
+            <div>
+                <label for="whatsapp">WhatsApp</label>
+                <input type="number" id="whatsapp" name="whatsapp" required>
+                <span class="error-message" id="error-whatsapp"></span>
+            </div>
+            <div>
+                <label for="detalles">Nombre del Agasajado / Institución / Empresa</label>
+                <input type="text" id="detalles" name="detalles" required>
+                <span class="error-message" id="error-detalles"></span>
+            </div>
+            <div>
+                <label for="servicio">Seleccione el Servicio a consultar</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="" disabled selected>Selecciona un servicio</option>
+                    <option value="animaciones">Animaciones/Talleres/Espectáculos</option>
+                    <option value="evento-escuelas">Evento en Escuelas</option>
+                    <option value="eventos-corporativos">Eventos Corporativos</option>
+                </select>
+                <span class="error-message" id="error-servicio"></span>
+            </div>
+            <div>
+                <label for="fecha">Día/hora estimada del evento</label>
+                <input type="datetime-local" id="fecha" name="fecha" required>
+                <span class="error-message" id="error-fecha"></span>
+            </div>
+            <div>
+                <label for="zona-evento">Zona a Realizar Evento</label>
+                <select id="zona-evento" name="zona-evento" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="dentro-caba">Dentro de CABA</option>
+                    <option value="fuera-caba">Fuera de CABA</option>
+                </select>
+                <span class="error-message" id="error-zona-evento"></span>
+            </div>
+            <div>
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                <span class="error-message" id="error-mensaje"></span>
+            </div>
+            <div>
+                <label id="anti-robot-label">Pregunta anti-robot:</label>
+                <input type="text" id="anti-robot" name="anti-robot" required>
+                <input type="hidden" id="correct-answer">
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+
+    <main>
+        <section class="about-us">
+            <div class="about-text">
+                <h1>En Universo Bellotas nos apasiona diseñar y producir eventos y espectáculos que combinan juego, arte y conciencia ambiental.</h1>
+                <div class="divider"></div>
+                <p>
+                    Creemos en la fuerza del arte para inspirar cambios positivos, por eso trabajamos día a día para crear experiencias enriquecedoras que fomenten la creatividad y el aprendizaje.
+                </p>
+                <div class="features">
+                    <div class="feature">
+                        <h3><span class="arrow">»</span> Nuestra misión</h3>
+                        <p>Nuestra misión es acompañar el crecimiento de las nuevas generaciones con amor, respeto y un fuerte sentido de responsabilidad hacia el entorno que habitamos. ¡Te invitamos a conocernos y compartir juntos la magia del juego y el arte!</p>
+                    </div>
+                    <div class="feature">
+                        <h3><span class="arrow">»</span> Dirección Artística</h3>
+                        <p>Detrás de esta iniciativa está nuestra directora, Cintia Chantada Bique, reconocida organizadora de eventos, gestora cultural, payasa y actriz con más de 20 años de trayectoria. A lo largo de su carrera, Cintia ha liderado proyectos artísticos innovadores basados en la educación lúdica y ha colaborado con múltiples instituciones culturales, llevando su mensaje de transformación social y cuidado del medio ambiente a través del arte. Su compromiso la ha llevado a formar redes con educadores, artistas y organizaciones comunitarias para promover espectáculos inclusivos y sostenibles.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-images">
+                <img src="images/main-image.jpg" alt="Camión en operaciones" class="main-image">
+                <img src="images/secondary-image.jpg" alt="Operador logístico" class="secondary-image">
+            </div>
+        </section>
+        
+        
+    
+        
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: <a href="#" id="open-contact-modal-footer">info@universobellotas.com.ar</a></p>
+            <p>WhatsApp: <a href="https://wa.me/1162488210">11-6248-8210</a></p>
+            <!-- Enlace para abrir el modal de Preguntas Frecuentes -->
+            <p>Acceder a: <a href="#" id="open-faq-modal">Preguntas Frecuentes</a></p>
+        </div>
+        <p class="copyright">&copy; 2024 Universo Bellotas. Todos los derechos reservados.</p>
+    </footer>
+    
+    <!-- Modal faq -->
+    <div id="faq-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-faq-modal">&times;</span>
+            <h2>Preguntas Frecuentes</h2>
+            <p>Valoramos la transparencia y la comodidad de nuestros clientes. Para brindarte una experiencia más fluida, hemos reunido una lista de preguntas frecuentes y sus respuestas correspondientes.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué tipos de eventos atienden?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        En Universo Bellotas atendemos una amplia variedad de eventos, incluyendo cumpleaños, fiestas escolares, eventos corporativos, fiestas temáticas y mucho más.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Cuánto tiempo dura una animación típica?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Las animaciones típicas tienen una duración de entre 1 y 2 horas, dependiendo del tipo de evento y la actividad contratada.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué edad deben tener los niños para participar en las animaciones?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Las actividades están diseñadas para niños de todas las edades, desde pequeños hasta adolescentes. Nos adaptamos a cada grupo.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Ofrecen paquetes de animación que incluyan decoración y catering?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Sí, ofrecemos paquetes completos que incluyen decoración temática, catering y animación, para que no tengas que preocuparte por nada.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

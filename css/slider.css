@@ -1,0 +1,117 @@
+/* Reset de estilos básicos */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #dee2e1;
+}
+
+/* Encabezado y pie de página */
+header, footer {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    height: 50px;
+}
+
+header nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+header .social-icons a {
+    margin-left: 10px;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Slider */
+.slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    height: 300px;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slider img.active {
+    display: block;
+}
+
+.slider .controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Miniaturas */
+.thumbnail-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+}
+
+.thumbnail {
+    text-align: center;
+    max-width: 200px;
+}
+
+.thumbnail img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.thumbnail a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Botón WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-btn img {
+    width: 30px;
+    height: 30px;
+}

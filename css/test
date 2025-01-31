@@ -1,0 +1,44 @@
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f5d689;
+    z-index: 1000;
+    height: 120px; /* Ajusta según la altura real del encabezado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 115px 0px 0;
+    background-color: #dee2e1;
+    color: #333;
+    margin-left: 0px;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f5d689;
+    padding: 0px 0px;
+    display:flex;
+    flex-direction:column-reverse;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index:1000;
+    margin-bottom: 20px; /* Espacio entre encabezado y slider */
+}

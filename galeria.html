@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Universo Bellotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+    <script src="js/faq-modal.js" defer></script>
+</head>
+<body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/1162488210" class="whatsapp-float" target="_blank">
+        <img src="images/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <nav class="nav">
+                <img src="images/logo.png" alt="Logo Universo Bellotas" class="logo">
+                <button class="menu-toggle" aria-label="Abrir/Cerrar menú">&#9776;🔍</button>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                    <li class="submenu">
+                        <a href="#" onclick="toggleSubMenu(event)">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="submenu-items">
+                            <li><a href="animaciones.html">Animaciones</a></li>
+                            <li><a href="colegios-instituciones.html">Escuelas</a></li>
+                            <li><a href="corporativos.html">Corporativos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="galeria.html" class="active">Galería</a></li>
+                    <li><a href="contacto.html" id="open-contact-modal">Contacto</a></li>
+                    <div class="social-links2">
+                        <li><a href="https://instagram.com/universobellotas" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.youtube.com/user/UniversoBellotas" target="_blank"><img src="images/youtube.png" alt="YouTube"></a></li>
+                        <li><a href="https://ar.pinterest.com/UniversoBellotas/" target="_blank"><img src="images/pinterest.png" alt="Pinterest"></a></li>
+                        <li><a href="https://www.linkedin.com/company/universo-bellotas/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+                        <li><a href="https://es-la.facebook.com/universobellotas" target="_blank"><img src="images/facebook.png" alt="Facebook"></a></li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <!-- Modal de Contacto -->
+<div id="contact-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Enviá tu consulta</h2>
+        <p>
+            Completa el formulario con los datos necesarios y nos pondremos en contacto contigo a la brevedad.
+            Estamos aquí para ayudarte con cualquier consulta sobre nuestros servicios.
+        </p>
+        <form id="contact-form" action="send_email.php" method="POST">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <span class="error-message" id="error-nombre"></span>
+            </div>
+            <div>
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <span class="error-message" id="error-apellido"></span>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="error-email"></span>
+            </div>
+            <div>
+                <label for="whatsapp">WhatsApp</label>
+                <input type="number" id="whatsapp" name="whatsapp" required>
+                <span class="error-message" id="error-whatsapp"></span>
+            </div>
+            <div>
+                <label for="detalles">Nombre del Agasajado / Institución / Empresa</label>
+                <input type="text" id="detalles" name="detalles" required>
+                <span class="error-message" id="error-detalles"></span>
+            </div>
+            <div>
+                <label for="servicio">Seleccione el Servicio a consultar</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="" disabled selected>Selecciona un servicio</option>
+                    <option value="animaciones">Animaciones/Talleres/Espectáculos</option>
+                    <option value="evento-escuelas">Evento en Escuelas</option>
+                    <option value="eventos-corporativos">Eventos Corporativos</option>
+                </select>
+                <span class="error-message" id="error-servicio"></span>
+            </div>
+            <div>
+                <label for="fecha">Día/hora estimada del evento</label>
+                <input type="datetime-local" id="fecha" name="fecha" required>
+                <span class="error-message" id="error-fecha"></span>
+            </div>
+            <div>
+                <label for="zona-evento">Zona a Realizar el Evento</label>
+                <select id="zona-evento" name="zona-evento" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="dentro-caba">Dentro de CABA</option>
+                    <option value="fuera-caba">Fuera de CABA</option>
+                </select>
+                <span class="error-message" id="error-zona-evento"></span>
+            </div>
+            <div>
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                <span class="error-message" id="error-mensaje"></span>
+            </div>
+            <div>
+                <label id="anti-robot-label">Pregunta anti-robot:</label>
+                <input type="text" id="anti-robot" name="anti-robot" required>
+                <input type="hidden" id="correct-answer">
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Main Content -->
+      <main class="gallery-container">
+        <!-- Título y texto introductorio -->
+        <section class="gallery-intro">
+            <h1>Explorá nuestra galería</h1>
+            <div class="divider"></div>
+            <p>Disfrutá de algunos momentos capturados en nuestras actividades y eventos.</p>
+        </section>
+
+        <!-- Carrusel de imágenes -->
+        <section class="image-carousel">
+            <button class="carousel-btn prev">&#8249;</button>
+            <div class="carousel-wrapper">
+                <div class="carousel-item"><img src="images/img-galeria/galeria1.jpg" alt="Imagen 1"></div>
+                <div class="carousel-item active"><img src="images/img-galeria/galeria2.jpg" alt="Imagen 2"></div>
+                <div class="carousel-item"><img src="images/img-galeria/galeria3.jpg" alt="Imagen 3"></div>
+                <div class="carousel-item"><img src="images/img-galeria/galeria4.jpg" alt="Imagen 4"></div>
+                <div class="carousel-item"><img src="images/img-galeria/galeria5.jpg" alt="Imagen 5"></div>
+                <div class="carousel-item"><img src="images/img-galeria/galeria6.jpg" alt="Imagen 6"></div>
+                <div class="carousel-item"><img src="images/img-galeria/galeria7.jpg" alt="Imagen 7"></div>
+                <div class="carousel-item"><img src="images/img-galeria/galeria8.jpg" alt="Imagen 8"></div>
+                <div class="carousel-item"><img src="images/img-galeria/galeria9.jpg" alt="Imagen 9"></div>
+                <!-- Agregar más imágenes si es necesario -->
+            </div>
+            <button class="carousel-btn next">&#8250;</button>
+        </section>
+
+        <!-- Modal para imágenes -->
+        <div id="image-modal" class="modal">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content" id="modal-img" alt="Imagen ampliada">
+        </div>
+
+        <!-- Sección de videos -->
+        <section class="video-section">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/GOUMhEWpr9I" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/FGa4Hng9aAU" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/cXSbvTKrnlg" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Modal para videos -->
+        <div id="video-modal" class="modal">
+            <span class="close-modal">&times;</span>
+            <iframe class="video-modal-content" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: <a href="#" id="open-contact-modal-footer">info@universobellotas.com.ar</a></p>
+            <p>WhatsApp: <a href="https://wa.me/1162488210">11-6248-8210</a></p>
+            <!-- Enlace para abrir el modal de Preguntas Frecuentes -->
+            <p>Acceder a: <a href="#" id="open-faq-modal">Preguntas Frecuentes</a></p>
+        </div>
+        <p class="copyright">&copy; 2024 Universo Bellotas. Todos los derechos reservados.</p>
+    </footer>
+    
+    <!-- Modal faq -->
+    <div id="faq-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-faq-modal">&times;</span>
+            <h2>Preguntas Frecuentes</h2>
+            <p>Valoramos la transparencia y la comodidad de nuestros clientes. Para brindarte una experiencia más fluida, hemos reunido una lista de preguntas frecuentes y sus respuestas correspondientes.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué tipos de eventos atienden?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        En Universo Bellotas atendemos una amplia variedad de eventos, incluyendo cumpleaños, fiestas escolares, eventos corporativos, fiestas temáticas y mucho más.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Cuánto tiempo dura una animación típica?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Las animaciones típicas tienen una duración de entre 1 y 2 horas, dependiendo del tipo de evento y la actividad contratada.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué edad deben tener los niños para participar en las animaciones?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Las actividades están diseñadas para niños de todas las edades, desde pequeños hasta adolescentes. Nos adaptamos a cada grupo.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Ofrecen paquetes de animación que incluyan decoración y catering?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Sí, ofrecemos paquetes completos que incluyen decoración temática, catering y animación, para que no tengas que preocuparte por nada.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

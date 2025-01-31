@@ -1,0 +1,2301 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 115px 0px 0;
+    background-color: #dee2e1;
+    color: #333;
+    margin-left: 0px;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f5d689;
+    padding: 0px 0px;
+    display:flex;
+    flex-direction:column-reverse;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index:1000;
+    margin-bottom: 20px; /* Espacio entre encabezado y slider */
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+}
+
+
+.logo {
+    width: 245px;
+    height: 120px;
+    float: left;
+    background-color: #f5d689;
+    margin-left: 150px;
+    display: flex;
+}
+/*Ajustes para pantalas más pequeñas*/
+@media (max-width: 1260px) {
+    .logo {
+        margin-left: 150px;
+    }
+
+}
+@media (max-width: 480px) {
+    .logo {
+        margin-left: 150px;
+        width: 200px;
+        background-color: #f5d689;
+    }
+    .menu-open .logo {
+        width: 150px; /* Mantiene el tamaño fijo cuando se abre el menú */
+    }
+}
+/* Estilo general del título */
+header h1 {
+    text-align: left;
+    font-style: italic;
+    font-family: cursive;
+    margin: 15px;
+    color: #437a63;
+    font-size: 2.5rem; /* Tamaño base del texto */
+}
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 960px) {
+    header h1 {
+        font-size: 1.5rem; /* Reducir tamaño en pantallas medianas */
+        text-align: center; /* Centrar el texto si es necesario */
+        line-height: 1.0;
+    }
+   
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 0.1rem; /* Reducir más en pantallas muy pequeñas */
+        text-align: left; /* Centrar el texto si es necesario */
+        line-height: 1.0; /* Asegurar espacio adecuado entre líneas */
+    }
+    
+
+}
+
+.social-links img {
+    width:5px;
+    margin: 0;
+    justify-content:right;
+    text-align: right;
+    float: right;
+}
+.social-links2 {
+    list-style: none;
+    padding: 1px;
+    display: flex;
+    justify-content: right;
+    margin: 0;
+    background-color: #f5d689;
+    line-height: 90px;
+    gap:0px;
+   }
+.social-links2 a img {
+        width: 20px; /* Tamaño de los iconos */
+        padding: 1px 0px;
+        margin-right: 0px;
+        line-height: 90px;
+        gap: 2px;
+        
+    }
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+    margin: 0;
+    background-color: #f5d689;
+    height: 109px;
+
+}
+
+nav ul li {
+    margin: 0 15px;
+    line-height: 100px;
+    padding: 1px 2px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #057446;
+    font-weight: bold;
+    }
+
+ nav ul li a:hover {
+       color: #c73636;
+ }
+
+/* Fondo del Submenú */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #f5d689  ;
+    padding: 10px 0; /* Espaciado interno */
+    margin-top: 5px; /* Ajusta la separación entre el menú principal y el submenú */
+    box-shadow: 15px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    top: 40%; /* Posiciona el submenú directamente debajo */
+    min-width: 15px; /* Asegura un ancho mínimo */
+    max-height: 45px;
+}
+
+/* Mostrar submenú al pasar el mouse */
+nav ul li:hover ul {
+    display: block;
+}
+
+/* Elementos del submenú */
+nav ul li ul li {
+    margin: 0;
+    padding: 1px 15px; /* Espaciado interno */
+    line-height: 1.0; /* Asegura el espaciado uniforme */
+    position: relative; /* Elimina cualquier desplazamiento no deseado */
+}
+
+/* Enlaces del submenú */
+nav ul li ul li a {
+    color: #057446;
+    font-size: 14px;
+}
+
+nav ul li ul li a:hover {
+    color: #c73636;
+}
+
+/* Slider */
+.slider {
+    position:relative;
+    overflow: hidden;
+    max-width: 80%;
+    height: 400px;
+    margin: 5px auto;
+    padding: 10px;
+    aspect-ratio: 100%;
+    border-radius: 20px;
+    
+    
+    
+}
+.slider h1{
+ text-align: left;
+ color: #031d5a;
+ margin-left: 0;
+ font-size: large;
+
+}
+.slides {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    
+    
+}
+
+.slide {
+    min-width: 100%;
+    height: 455px;
+    display: none; /* Ocultar todas las imágenes por defecto */
+    
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius: 20px;
+    
+}
+
+/* Mostrar la imagen activa */
+.slide:nth-child(n + 1):not(.active) {
+    display: block;
+}
+
+/* Botones de avance y retroceso */
+.slider-btn {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Efecto de hover */
+}
+@media (min-width: 1440px) {
+    .slider {
+        position:relative;
+        overflow: hidden;
+        max-width: 80%;
+        height: 400px;
+        margin: 5px auto;
+        padding: 10px;
+        aspect-ratio: 100%;
+        border-radius: 20px;
+      
+    }
+}
+
+@media (max-width: 768px) {
+    .slider {
+        max-width: 100%;
+        aspect-ratio: 4 / 3; /* Cambia la proporción en pantallas pequeñas */
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+}
+
+
+/* Ajuste de Highlights en Index */
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 60px; /* Reduce el espacio entre elementos */
+    padding: 10px 5%; /* Ajusta márgenes laterales para más elementos en fila */
+    font-size: smaller;
+    justify-content: center;
+}
+
+.highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #e7dddda0;
+    max-width: 280px; /* Mantiene el ancho fijo */
+    margin: 0 auto;
+}
+
+
+.highlight img {
+    width: 280px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.highlight h2 {
+    font-size: 15px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #057446;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+/* Justificar texto en los párrafos */
+.highlight p {
+    text-align: justify;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Responsivo para pantallas grandes */
+@media (min-width: 1200px) {
+    .highlights {
+        grid-template-columns: repeat(4, minmax(250px, 1fr)); /* 4 elementos por fila */
+    }
+}
+
+
+footer {
+    background-color: #f5d689;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    max-height: 75px;
+    margin: 0px;
+}
+
+.contact-info {
+    position: relative;
+    margin-left: 100px;
+    padding-left: 15px; /* Espacio entre la línea y el texto */
+    border-left: 4px solid #057446; /* Línea vertical única */
+}
+
+.contact-info p {
+    margin: 0px 0; /* Espaciado entre párrafos */
+    font-weight: bold;
+    font-size: 16px; /* Tamaño de texto más grande */
+    color: #333;
+}
+
+.contact-info a {
+    color: #057446; /* Color verde para enlaces */
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transición suave en el color */
+}
+
+.contact-info a:hover {
+    color: #c73636; /* Cambia a un color llamativo al pasar el mouse */
+    text-decoration: underline; /* Subrayado en hover */
+}
+
+footer .copyright {
+    text-align: center;
+    margin-top: 10px;
+    color: #555;
+    font-size: 12px; /* Tamaño reducido para el copyright */
+    margin: 0;
+}
+@media (max-width: 480px) {
+    .contact-info{
+        margin-left: 30px;
+    }
+
+}
+
+main {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+}
+
+
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow:none;
+}
+.whatsapp-float:hover {
+    background-color:none;
+}
+/* Botón de hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto en pantallas grandes */
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px; /* Alineado a la derecha */
+    z-index: 99; /* Asegura que esté encima del contenido */
+    background: #f5d689;
+    border: none;
+    color: #057446; /* Color del botón */
+    padding: 10px;
+    border-radius: 8px; /* Bordes redondeados */
+    animation: heartbeat 1.9s infinite ease-in-out; /* Aplica el efecto */
+}
+
+/* Animación de latido */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Menú principal */
+.menu {
+    display: flex; /* Visible en pantallas grandes */
+    right: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+    background-color: #f5d689;
+    z-index:1000;
+    height: 100%;
+}
+
+.menu li {
+    margin: 0 8px;
+    right: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #057446;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.menu li a:hover {
+    color: #c73636;
+}
+/* Estilos Responsive (CLAVES) */
+@media (max-width: 1100px) {
+    header {
+        align-items: flex-start; /* Alinea a la izquierda en responsive */
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        
+        
+    }
+
+    .logo {
+        margin: 0 auto; /* Centra el logo */
+        max-width: 250px; /* Evita que se salga del contenedor en pantallas muy pequeñas */
+    }
+
+    .menu-toggle {
+        display: block;
+        align-self: flex-end;
+        margin-top: 10px; /* Espacio entre el logo y el botón */
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        justify-content: right;  
+        width: 90%;
+        text-align: left;
+        background-color: var(--color-principal);
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        box-sizing: border-box;
+        margin-top: 10px;
+        z-index: 1000;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+    
+
+    .menu li {
+        margin: 5px 0;
+        line-height: 1.2;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        width: 50%;
+    }
+
+    .menu li:last-child {
+        border-bottom: none;
+    }
+
+    .menu a {
+        padding: 10px;
+        display: block;
+        font-size: 1em; /* Ajusta el tamaño de la fuente */
+        text-align: left;
+        line-height: 0.1;
+    }
+    .social-links2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 0px;
+        background-color: transparent;
+        line-height: normal;
+    }
+    .social-links2 a img {
+        width: 30px;
+        margin: 0 5px;
+        line-height: 1.0;
+    }
+
+    .submenu {
+        width: 100%;
+        height: 100%;
+        line-height: 0; /* Asegura el espaciado uniforme */
+        
+    }
+
+    .submenu-items {
+        position: relative;
+        box-shadow: none;
+        padding-left: 110px;
+        line-height: 0px; /* Asegura el espaciado uniforme */
+        margin-top: 1px;
+        min-width: auto;
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10;
+    }
+
+    .submenu:hover .submenu-items {
+        display: none;
+    }
+
+    .submenu.active .submenu-items {
+        display: block;
+    }
+
+    .submenu.active .arrow {
+        transform: rotate(180deg);
+    }
+}
+
+/* Animación de pulsación periódica */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color:#c4f8e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite; /* Pulsación periódica */
+}
+
+.whatsapp-float img {
+    width: 70%;
+    height: 70%;
+}
+
+/* Efecto al pasar el cursor */
+.whatsapp-float:hover {
+    transform: scale(1.2); /* Aumenta ligeramente de tamaño */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Más sombra al hacer hover */
+    animation: none; /* Detén la animación de pulsación al hacer hover */
+}
+h1{
+    text-align: center;
+    margin-left: 35px;
+}
+p{
+    margin-left: 25px;
+    margin: 25px;
+    text-align: justify;
+    line-height: 1.6; /* Mejora la legibilidad aumentando el espaciado entre líneas */
+    
+}
+/* Animación de rebote */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial y final */
+    }
+    50% {
+        transform: translateY(-10px); /* Salto hacia arriba */
+    }
+}
+
+/* Aplicar la animación al título */
+.titulo h1 {
+    display: inline-block; /* Necesario para que funcione la animación */
+    animation: bounce 1.5s infinite; /* Nombre, duración y repetición infinita */
+    color: #c73636; /* Ajusta el color del texto si es necesario */
+    font-size: 2rem; /* Ajusta el tamaño si deseas */
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.0;
+    margin-top: 145px;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+}
+@media (max-width: 768px) {
+    .titulo{
+        margin-top: 20px;
+    }    
+    
+
+}
+h3{
+    margin-left: 25px;
+    color: #031d5a;
+    text-decoration:wavy;
+}
+
+
+/* Contenedor general del formulario */
+form {
+    max-width: 800px;
+    margin: 20px auto; /* Centrado en la página */
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+    gap: 20px; /* Espacio entre campos */
+}
+
+/* Etiquetas */
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 18px;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea,
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Campo de texto largo */
+textarea {
+    height: 80px;
+    resize: vertical;
+    grid-column: 1 / span 2; /* Ocupa ambas columnas */
+}
+
+/* Botón de enviar */
+button[type="submit"] {
+    grid-column: 1 / span 2; /* Centrado y ocupa ambas columnas */
+    width: 50%;
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #057446; /* Verde */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #045a34; /* Verde oscuro en hover */
+}
+
+/* Anti-robot campo */
+#anti-robot-label {
+    grid-column: 1 / span 2; /* Etiqueta ocupa ambas columnas */
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr; /* Una columna para pantallas pequeñas */
+    }
+    
+}
+
+
+    button[type="submit"] {
+        width: 100%; /* Botón ocupa todo el ancho en pantallas pequeñas */
+    }
+
+/* Estilo para el contenedor del título y párrafo */
+.header-section {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin: 20px auto; /* Espaciado alrededor */
+    max-width: 800px; /* Limita el ancho para un diseño limpio */
+}
+
+/* Estilo para el título */
+.header-section h2 {
+    font-size: 24px; /* Tamaño del título */
+    font-weight: bold;
+    color: #333; /* Color del texto */
+    margin-bottom: 10px; /* Espaciado inferior */
+    
+}
+
+/* Estilo para el párrafo */
+.header-section p {
+    font-size: 16px; /* Tamaño del texto */
+    line-height: 1.6; /* Altura de línea para mejor lectura */
+    color: #555; /* Color del texto */
+    margin: 5px; /* Elimina márgenes por defecto */
+    
+}
+.error-message {
+    font-size: 12px;
+    color: #c73636; /* Rojo */
+    margin-top: 5px;
+    display: none; /* Oculto por defecto */
+}
+.confirmacion {
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+/* Estilo para la página de confirmación */
+.main-header {
+    background-color: #f5d689;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.main-header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.confirmation-container {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #555;
+}
+
+.confirmation-container .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #057446;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.confirmation-container .btn:hover {
+    background-color: #c73636;
+}
+
+/* Ajuste para la página de confirmación */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Ajuste para centrar el texto de confirmación */
+main.confirmation-container {
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    max-width: 600px;
+    max-height: 35%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    text-align: center; /* Centra horizontalmente el texto */
+}
+
+/* Ajuste adicional para el texto */
+main.confirmation-container h1 {
+    margin-bottom: 1px;
+    font-size: 26px;
+    color: #057446;
+    text-align: justify;
+}
+
+main.confirmation-container h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+}
+
+main.confirmation-container p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+footer {
+    margin-top: 0; /* Asegura que el footer esté justo después del contenido */
+}
+
+
+/* Elimina cualquier margen adicional al final de la página */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+footer {
+    background-color: #f5d689;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-top: auto; /* Empuja el footer al final */
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #057446;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 15px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    font-size: 1.0;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal form {
+    display: grid;
+    grid-template-columns: 50% 50%; /* Define el tamaño de las columnas */
+    gap: 5px; /* Espacio entre columnas */
+    
+}
+
+.modal form div {
+    grid-column: span 1; /* Cada campo ocupa una columna */
+    line-height: 1.5;
+}
+
+/* Campos largos como textarea o botones */
+.modal form textarea,
+.modal form button {
+    grid-column: span 2; /* Estos elementos ocupan ambas columnas */
+    
+    
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .modal form {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        grid-template-columns: 55% 50%; /* Define el tamaño de las columnas */
+    }
+
+    .modal form div {
+        grid-column: span 1; /* Ocupa toda la fila */
+    }
+    /* Estilo para etiquetas */
+form label {
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Campos de entrada */
+form input,
+form select {
+    width: 100%; /* Asegura que los campos llenen la columna */
+    padding: 5px;
+    font-size: 12px;
+    height: 40px; /* Ajusta según el tamaño deseado */
+}
+}
+
+/* Estilos del modal de confirmación */
+#confirmation-modal {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    height: 90%;
+    max-height: 470px;
+    z-index: 1001;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+#confirmation-modal .modal-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #057446;
+    margin-bottom: 10px;
+}
+
+#confirmation-modal .modal-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#confirmation-modal .modal-footer {
+    text-align: center;
+}
+.modal-header h2{
+    font-size: large;
+}
+
+#confirmation-modal .button-close {
+    background-color: #057446;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#confirmation-modal .button-close:hover {
+    background-color: #045a34;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Ajustar el espaciado superior del título */
+/* Estilo del título principal */
+.main-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #2a7f3a;
+    margin-top: 20px;
+    line-height: 1.5;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+/* Animación de los emojis dentro del título */
+.main-title .emoji {
+    display: inline-block;
+    animation: bounce 2s infinite;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Efecto hover en los emojis */
+.main-title .emoji:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Línea decorativa bajo el título */
+.main-title::after {
+    content: '';
+    display: block;
+    width: 300px;
+    height: 4px;
+    margin: 10px auto 0;
+    background: linear-gradient(to right, #ff6f00, #2a7f3a);
+    border-radius: 5px;
+    animation: slideIn 1s ease-out;
+}
+
+/* Animación de la línea decorativa */
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 200px;
+    }
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    .main-title {
+        text-align: left; /* Alinear a la izquierda */
+        padding-left: 0px; /* Añade espaciado a la izquierda */
+        font-size: 1.8rem;
+    }
+
+    .main-title h1 {
+        font-size: 1.8rem; /* Reduce el tamaño del título */
+        text-align: left; /* Alinear a la izquierda */
+    }
+
+    .main-title p {
+        font-size: 1rem; /* Reduce el tamaño del párrafo */
+    }
+
+    .main-title::after {
+        margin-left: 10px; /* Alinear la línea decorativa con el texto */
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title h1 {
+        font-size: 1.5rem; /* Ajusta aún más el tamaño del título */
+        text-align: left; /* Alinear a la izquierda */
+    }
+
+    .main-title p {
+        font-size: 0.9rem; /* Ajusta el tamaño del párrafo */
+    }
+
+    .main-title .after {
+        width: 150px; /* Reduce el ancho de la línea decorativa */
+    }
+    .main-title .emoji{
+        text-align: left;
+    }
+}
+.main-title h1 {
+    font-size: 2.3rem; /* Tamaño del título */
+    margin: 10px 0;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+}
+
+.main-title p {
+    font-size: 1.2rem; /* Tamaño del párrafo */
+    margin: 5px 0;
+    font-family: "Arial", sans-serif;
+    color: #333; /* Color secundario del texto */
+}
+/* Ajustar el espaciado superior del título */
+.main-title {
+    margin-top: 120px; /* Espacio suficiente para evitar la superposición con el encabezado */
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 1px 20px;
+    color: #057446;
+    
+}
+
+.main-title h1 {
+    font-size: 2.3rem;
+    margin: 10px 0;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+}
+
+.main-title p {
+    font-size: 1.2rem;
+    margin: 1px 0;
+    text-align: left;
+    font-family: "Arial", sans-serif;
+    color: #333;
+}
+/* Ajustes para el título principal y su descripción alineados con el slider */
+.main-title {
+    text-align: center;
+    margin: 45px;
+    margin-top: 140px; /* Espacio superior */
+    margin-bottom: 0.5px; /* Espacio inferior */
+    padding: 10px;
+    color: #057446;
+}
+
+.main-title h1 {
+    font-size: 2.3rem;
+    margin: 10px 0;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+}
+
+/* Contenedor del texto descriptivo */
+.main-title p {
+    max-width: 80%; /* Igual ancho que el slider */
+    margin: 0px auto; /* Centrado */
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.0;
+    color: #555;
+}
+
+/* Responsividad del texto */
+@media (max-width: 768px) {
+    .main-title h1 {
+        font-size: 1.4rem; /* Reduce el tamaño del título */
+        text-align: left;
+        margin-left: 0px;
+        max-width: 100%;
+    }
+
+    .main-description {
+        font-size: 1.1rem; /* Reduce el tamaño del texto */
+        line-height: 1.4; /* Ajusta el espaciado */
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title h1 {
+        font-size: 1.5rem; /* Más pequeño en pantallas pequeñas */
+        text-align: left;
+        margin-left: 0px;
+        max-width: 100%;
+    }
+
+    .main-description {
+        font-size: 0.85rem; /* Texto más pequeño */
+        text-align: left;
+    }
+}
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0; /* Eliminamos el padding general del body */
+    background-color: #dee2e1;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f5d689;
+    flex-direction: column; /* Mantén la estructura vertical */
+    position: fixed; /* Fijo al desplazarse */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para destacar el encabezado */
+}
+
+/* Ajuste del espacio en el contenido principal */
+main {
+    margin-top: 120px; /* Ajusta este valor según la altura del encabezado */
+    padding: 20px;
+}
+
+/* Otros ajustes */
+header .logo {
+    margin: 10px 20px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+/* Ajuste del espacio entre encabezado fijo y contenido */
+main {
+    margin-top: 10px; /* Ajusta este valor según la altura real del encabezado */
+    padding: 0 20px; /* Margen interior para que no quede pegado al borde */
+}
+
+/* Elimina márgenes o padding adicionales en el body */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.main-container {
+    padding-top: 140px; /* Espaciado suficiente para evitar superposición */
+}
+
+.about-us {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px;
+    gap: 20px;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 60%;
+}
+
+.about-text h1 {
+    font-size: 1.6rem;
+    max-width: 80%;
+    color: #002060;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-top: 100px;
+}
+
+.divider {
+    width: 400px; /* Ancho del separador */
+    height: 8px; /* Grosor del separador (más alto) */
+    background: repeating-linear-gradient(
+        -45deg, /* Ángulo de las líneas diagonales */
+        #ff6f00, /* Color naranja */
+        #ff6f00 1.5px, /* Tamaño del segmento naranja (más fino) */
+        transparent 4px, /* Tamaño del segmento transparente (más fino) */
+        transparent 7px /* Ciclo del patrón */
+    );
+    margin: 15px 0; /* Espaciado superior e inferior */
+    border-radius: 5px; /* Bordes redondeados suaves */
+    margin-left: 25px; 
+}
+
+/* Ajuste en responsive */
+@media (max-width: 768px) {
+    .divider {
+        margin-left: 0; /* Asegura que se alinee al inicio del texto */
+        max-width: 100%; /* Adapta el ancho a pantallas pequeñas */
+    }
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.features {
+    margin-top: 20px;
+}
+
+.feature {
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    color: #002060;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.feature h3 .arrow {
+    color: #ff6f00;
+    font-size: 2rem;
+    margin-right: 10px;
+}
+.about-text h1 {
+    text-align: left;
+    font-size: 1.4rem; /* Ajusta el tamaño del título */
+    margin-left: 15px;
+    margin-top: 120px;
+    max-width: 100%; /* Asegura que el ancho del título sea igual al del texto */
+    line-height: 1.2; /* Mejora la legibilidad */
+}
+.feature p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.about-images {
+    flex: 1;
+    max-width: 40%;
+    position: relative;
+
+}
+
+.about-images .main-image {
+    width: 300px;
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-top: 180px;
+
+    
+}
+
+.about-images .secondary-image {
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    bottom: -80px;
+    right: -20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    
+    
+}
+
+@media (max-width: 768px) {
+    .about-us {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px; /* Ajusta el padding general */
+    }
+
+    .about-text {
+        max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        padding: 0 10px; /* Margen interno lateral */
+        margin: 0; /* Elimina márgenes externos */
+    }
+
+    .about-text h1 {
+        text-align: left;
+        font-size: 1.4rem; /* Ajusta el tamaño del título */
+        margin: 10px 0; /* Reduce los márgenes */
+        margin-top: 140px;
+        max-width: 100%; /* Asegura que el ancho del título sea igual al del texto */
+        padding-right: 10px; /* Ajusta el espacio a la derecha */
+        line-height: 1.2; /* Mejora la legibilidad */
+    }
+    
+
+    .about-text p {
+        font-size: 1rem; /* Tamaño del texto */
+        line-height: 1.6; /* Espaciado entre líneas */
+        margin: 10px 0; /* Reduce márgenes */
+    }
+
+    .about-images {
+        max-width: 100%; /* Asegura que las imágenes no excedan el contenedor */
+        margin-top: 20px;
+    }
+
+    .about-images .main-image,
+    .about-images .secondary-image {
+        margin: 10px auto; /* Centra las imágenes */
+        position: relative; /* Asegura la posición */
+        top: 0;
+        right: 0;
+    }
+}
+
+/* Animación de entrada desde abajo */
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Clase para las imágenes animadas */
+.image-slide-in {
+    animation: slideInFromBottom 0.8s ease-out;
+    animation-fill-mode: forwards;
+}
+
+
+/* Estado inicial: imágenes ocultas y desplazadas hacia abajo */
+.about-images img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Estado final: imágenes visibles y en su posición original */
+.image-slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Configuración inicial de las imágenes */
+.about-images img {
+    opacity: 0; /* Ocultas al inicio */
+    transform: translateY(50px); /* Desplazadas hacia abajo */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Animación suave */
+    position: relative;
+    display: block;
+}
+
+/* Clase que se activa al cargar la página */
+.image-slide-in {
+    opacity: 1; /* Aparecen */
+    transform: translateY(0); /* Regresan a su posición original */
+}
+/* ===== Estilos de la Galería ===== */
+
+/* Asegurar que la página no tenga desbordamiento lateral */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
+}
+
+/* Estilo general del contenedor */
+.gallery-container {
+    padding: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Títulos y texto introductorio ===== */
+.gallery-intro h1 {
+    font-size: 2rem;
+    color: #045231;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 125px;
+}
+
+.gallery-intro p {
+    font-size: 1.2rem;
+    color: #666687;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+/* ===== Estilos responsivos (para títulos y texto) ===== */
+@media (max-width: 768px) {
+    .gallery-intro h1 {
+        font-size: 1.5rem;
+        text-align: left;
+        margin-left: 20px;
+        margin-top: 150px;
+    }
+
+    .gallery-intro p {
+        font-size: 1rem;
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    .gallery-intro .divider {
+        margin-left: 15px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-intro h1 {
+        font-size: 1.2rem;
+        margin-left: 15px;
+        margin-top: 140px;
+    }
+
+    .gallery-intro p {
+        font-size: 0.9rem;
+        margin-left: 15px;
+    }
+
+    .gallery-intro .divider {
+        margin-left: 15px;
+        max-width: 90%;
+    }
+}
+
+/* ===== Contenedor del Carrusel ===== */
+.image-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 20px auto;
+    width: 100%;
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+/* Envoltura de las imágenes */
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+    width: 100%;
+}
+
+/* Elementos individuales del carrusel */
+.carousel-item {
+    flex: 0 0 200px; /* Mantiene el tamaño original de 200px */
+    margin: 0 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+    max-width: 100%;
+}
+
+.carousel-item.active {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Imágenes dentro de los elementos */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Botones del carrusel ===== */
+.carousel-btn {
+    background-color: #057446;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #045a34;
+}
+
+.carousel-btn.prev {
+    left: 5px;
+}
+
+.carousel-btn.next {
+    right: 5px;
+}
+
+/* ===== Ajuste RESPONSIVO para el carrusel ===== */
+@media (max-width: 768px) {
+    .carousel-item {
+        flex: 0 0 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-carousel {
+        width: 75%;
+        margin-left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .carousel-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto; /* Habilita desplazamiento en móviles sin mostrar barra */
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        width: 100%;
+    }
+
+    .carousel-item {
+        flex: 0 0 160px;
+        margin: 5px auto;
+        max-width: 160px;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Ajuste de los botones en pantallas pequeñas */
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        padding: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-btn.prev {
+        left: 2px;
+    }
+
+    .carousel-btn.next {
+        right: 2px;
+    }
+
+    /* Ocultar barra de desplazamiento */
+    .carousel-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ===== Botones de navegación en el modal ===== */
+.modal-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.modal-btn.prev {
+    left: 15px;
+}
+
+.modal-btn.next {
+    right: 15px;
+}
+
+.modal-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/* Sección de videos */
+.video-section {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.video-wrapper {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #000;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* Modal de videos */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1100;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.video-modal .video-modal-content {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.video-modal .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+
+/* Modal de imágenes */
+#image-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro reducido en opacidad */
+    padding: 15px; /* Reducción del padding */
+    border-radius: 8px; /* Bordes más pequeños */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 80%; /* Ajustar el ancho máximo */
+    max-height: 80%; /* Ajustar la altura máxima */
+    align-items: center; /* Centra verticalmente */
+    padding: 10px; /* Agrega espacio adicional en pantallas pequeñas */
+}
+
+#image-modal .modal-content {
+    max-width: 65%;
+    max-height: 72vh;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+#image-modal .modal-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #057446;
+    color: white;
+    border: none;
+    padding: 8px; /* Botones más pequeños */
+    font-size: 1.2rem; /* Reducción del tamaño del texto */
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+    width: 35px; /* Ancho más pequeño */
+    height: 35px; /* Altura más pequeña */
+}
+
+#image-modal .modal-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    
+}
+
+#image-modal .modal-btn.prev {
+    left: 10px;
+}
+
+#image-modal .modal-btn.next {
+    right: 10px;
+}
+
+#image-modal .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+   
+    #image-modal .modal-content {
+        max-width: 95%; /* Asegura que la imagen ocupe el ancho casi completo */
+        max-height: 75%; /* Ajusta la altura para pantallas más pequeñas */
+        object-fit: contain; /* Evita recortes */   
+        align-items: center; /* Centra verticalmente */
+        margin-top: 20%;
+    }
+
+    #image-modal .close-modal {
+        top: 10px;
+        right: 10px;
+        font-size: 25px; /* Reduce el tamaño del ícono de cierre */
+    }
+}
+
+/* Botones prev y next dentro del modal */
+.modal-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1200;
+}
+
+.modal-btn.prev {
+    left: 10px;
+}
+
+.modal-btn.next {
+    right: 10px;
+}
+
+.modal-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilo general del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Centrar verticalmente */
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; /* Ancho del modal */
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de cierre */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* Galería de imágenes */
+.modal-gallery {
+    display: flex;
+    flex-direction: row; /* Miniaturas y la imagen grande en fila */
+    align-items: flex-start; /* Alinea las miniaturas con la parte superior de la imagen grande */
+    gap: 20px; /* Espacio entre las miniaturas y la imagen grande */
+}
+
+.thumbnail-gallery {
+    display: flex;
+    flex-direction: column; /* Columna para miniaturas */
+    gap: 10px; /* Espacio entre miniaturas */
+    align-items: center; /* Centrar las miniaturas */
+}
+
+.thumbnail-gallery img {
+    width: 70px; /* Tamaño de las miniaturas */
+    height: 70px; /* Tamaño uniforme */
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail-gallery img:hover {
+    border-color: #ff6600; /* Cambia color al pasar el mouse */
+}
+
+.featured-image {
+    flex-grow: 1; /* Permite que la imagen grande ocupe el espacio disponible */
+}
+
+.featured-image img {
+    width: 100%; /* Ajusta al tamaño del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+}
+/* Imagen destacada: tamaño fijo */
+.featured-image img {
+    width: 100%; /* Define un ancho fijo */
+    max-width: 450px; /* Tamaño máximo para mantener la proporción */
+    height: 400px; /* Define una altura fija */
+    object-fit: cover; /* Asegura que la imagen se recorte proporcionalmente sin deformarse */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    border: 2px solid #ccc; /* Borde opcional */
+}
+
+
+/* Contenedor de los botones */
+.modal-buttons {
+    display: flex;
+    justify-content: center; /* Centrar los botones horizontalmente */
+    gap: 20px; /* Espaciado entre botones */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+/* Botones */
+.button {
+    padding: 12px 24px; /* Tamaño del botón */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px; /* Aumentar el tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto 3D */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Botón de WhatsApp */
+.whatsapp-button {
+    background-color: #25d366; /* Color verde de WhatsApp */
+    color: white;
+    border: 1px solid #1c9c57; /* Borde verde más oscuro */
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Botón de Consultar */
+.consult-button {
+    background-color: #ff6600; /* Color naranja */
+    color: white;
+    border: 1px solid #cc5200; /* Borde naranja más oscuro */
+}
+
+.consult-button:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+/* Ajustar interlineado del texto */
+.modal-content p {
+    line-height: 1.4; /* Cambia el valor según necesites */
+    margin-bottom: 10px; /* Ajusta el margen inferior si es necesario */
+}
+/* Highlights específicos para la página corporativos */
+.corporativos-page .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px; /* Espaciado entre columnas y filas */
+    margin-top: 80px;
+    padding: 10px;
+    margin-left: 0.5cm; /* Mueve el bloque hacia la derecha */
+}
+
+.corporativos-page .highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #e7dddda0;
+    border-radius: 8px;
+    width: 93%;
+    height: 280px; /* Altura fija */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    gap: 10px;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.corporativos-page .highlight img {
+    width: 100%;
+    height: 150px; /* Altura fija para imágenes */
+    object-fit: cover; /* Asegura que la imagen encaje bien en el contenedor */
+    border-radius: 8px;
+}
+
+.corporativos-page .highlight h2 {
+    font-size: 1.2rem;
+    color: #002060;
+    margin: 10px 0 0 0;
+}
+
+.corporativos-page .highlight .button {
+    width: 80%; /* Botón centrado más pequeño */
+    margin-top: auto;
+    padding: 10px 20px;
+    background-color: #057446;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.corporativos-page .highlight .button:hover {
+    background-color: #045a34;
+    transform: scale(1.05);
+}
+
+/* Activación de la animación */
+.corporativos-page .highlight-animate {
+    transform: translateY(0);
+    opacity: 1;
+    animation: slideInFromBottom 0.6s ease-out; /* Agrega animación al entrar */
+}
+
+/* Keyframes para efecto desde abajo */
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .corporativos-page .about-highlights {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .corporativos-page .highlight img {
+        width: 100%;
+        height: 200px; /* Tamaño fijo en altura para pantallas pequeñas */
+        object-fit: cover; /* Asegura el recorte proporcional */
+    }
+}
+/* Sección de Confían en Nosotros */
+#trusted-carousel {
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+#trusted-carousel h2 {
+    font-size: 1.5rem;
+    color: #002060;
+    margin-bottom: 1px;
+    text-align: left;
+    margin-left: 100px;
+}
+
+/* Estilos del carrusel */
+#trusted-carousel .logo-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+#trusted-carousel .carousel-wrapper {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.4s ease-in-out;
+    width: 100%;
+}
+
+#trusted-carousel .carousel-item {
+    flex: 0 0 150px; /* Tamaño fijo de cada logo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#trusted-carousel .carousel-item img {
+    width: 100px; /* Ajusta el tamaño del logo */
+    height: 50px;
+    object-fit: contain;
+    filter: grayscale(100%); /* Logos en blanco y negro */
+    transition: filter 0.3s ease;
+}
+
+#trusted-carousel .carousel-item img:hover {
+    filter: grayscale(0); /* Colores al pasar el mouse */
+}
+
+/* Botones del carrusel */
+#trusted-carousel .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+#trusted-carousel .carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#trusted-carousel .carousel-btn.prev {
+    left: 10px;
+}
+
+#trusted-carousel .carousel-btn.next {
+    right: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    #trusted-carousel .carousel-item {
+        flex: 0 0 100px; /* Reduce el tamaño de los logos en pantallas pequeñas */
+    }
+
+    #trusted-carousel .carousel-btn {
+        padding: 6px;
+        font-size: 1rem;
+    }
+}
+@media (min-width: 1340px) {
+    #trusted-carousel .logo-carousel {
+        max-width: 65%;
+    }
+
+    #trusted-carousel .carousel-btn {
+        padding: 6px;
+        font-size: 1rem;
+    }
+}
+/* Modal de Preguntas Frecuentes */
+.modal-content h2{
+    text-align: center;
+    color: #002060dd;
+}
+
+.faq-container {
+    margin-top: 20px;
+}
+
+.faq-item {
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    text-align: left;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #855454;
+    font-weight: bold;
+}
+
+.faq-toggle {
+    font-size: 1.2rem;
+}
+
+.faq-answer {
+    display: none; /* Cambia a 'block' para que todas las respuestas sean visibles */
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.5;
+}
+.faq-item.active .faq-answer {
+    display: block; /* Muestra la respuesta cuando la pregunta está activa */
+}
+.faq-item.active .faq-question {
+    background-color: #f5d689; /* Color de fondo para la pregunta activa */
+    color: #002060; /* Cambia el color del texto */
+    font-weight: bold; /* Puedes hacerlo más destacado */
+    border-left: 4px solid #ff6f00; /* Añadir un borde decorativo opcional */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Efecto suave */
+}
