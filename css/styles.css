@@ -272,7 +272,7 @@ nav ul li ul li a:hover {
 }
 @media (max-width: 480px) {
     .slider h1 {
-       font-size: small;
+       font-size: 16px;
     }
 }
 
@@ -1140,8 +1140,8 @@ form select {
 @media (max-width: 480px) {
     .main-title {
         text-align: left !important; /* 🔹 Asegura alineación a la izquierda */
-        font-size: 1.0rem;
-        margin-left: 5px;
+        font-size: 1.1rem;
+        margin-left: 2px;
         margin-top: 160px;
     }
 
