@@ -117,6 +117,7 @@ nav ul {
     margin: 0;
     background-color: #f5d689;
     height: 109px;
+    
 
 }
 
@@ -130,6 +131,7 @@ nav ul li a {
     text-decoration: none;
     color: #057446;
     font-weight: bold;
+    
     }
 
  nav ul li a:hover {
@@ -1572,18 +1574,19 @@ html, body {
 @media (max-width: 480px) {
     .gallery-intro h1 {
         font-size: 1.2rem;
-        margin-left: 15px;
+        margin-left: 5px;
         margin-top: 140px;
     }
 
     .gallery-intro p {
         font-size: 0.9rem;
-        margin-left: 15px;
+        margin-left: 5px;
+        max-width: 70%;
     }
 
     .gallery-intro .divider {
-        margin-left: 15px;
-        max-width: 90%;
+        margin-left: 5px;
+        max-width: 70%;
     }
 }
 
@@ -1663,61 +1666,23 @@ html, body {
         flex: 0 0 180px;
     }
 }
-
 @media (max-width: 480px) {
-    .image-carousel {
-        width: 75%;
-        margin-left: 0px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-
-    .carousel-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto; /* Habilita desplazamiento en móviles sin mostrar barra */
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        width: 100%;
-    }
-
     .carousel-item {
-        flex: 0 0 160px;
-        margin: 5px auto;
-        max-width: 160px;
+        flex: 0 0 150px;
+    }
+    .image-carousel {
+        width: 77%;
+        margin-left: 5px;
+    }
+    .video-section {
+        justify-content: left;
+        margin-left: 0px;
+        max-height: 70%;
+
     }
 
-    .carousel-item img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-
-    /* Ajuste de los botones en pantallas pequeñas */
-    .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-        padding: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .carousel-btn.prev {
-        left: 2px;
-    }
-
-    .carousel-btn.next {
-        right: 2px;
-    }
-
-    /* Ocultar barra de desplazamiento */
-    .carousel-wrapper::-webkit-scrollbar {
-        display: none;
-    }
 }
+
 
 /* ===== Botones de navegación en el modal ===== */
 .modal-btn {
@@ -1752,10 +1717,11 @@ html, body {
 /* Sección de videos */
 .video-section {
     display: flex;
-    gap: 20px;
-    justify-content: center;
+    gap: 100px;
+    justify-content: left;
     flex-wrap: wrap;
     margin-top: 40px;
+    margin-left: 10px;
 }
 
 .video-wrapper {

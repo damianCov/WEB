@@ -227,14 +227,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
 // ===== Carrusel de Imágenes =====
 document.addEventListener("DOMContentLoaded", () => {
     const carouselWrapper = document.querySelector(".carousel-wrapper");
     const carouselItems = document.querySelectorAll(".carousel-item");
     const prevBtn = document.querySelector(".carousel-btn.prev");
     const nextBtn = document.querySelector(".carousel-btn.next");
-    let itemWidth = 210; // Ancho de cada imagen (incluido margen)
-    let itemsToShow = Math.floor(window.innerWidth / itemWidth); // Calcula cuántas imágenes mostrar
+    let itemWidth = 210; // Ancho por defecto
+    let itemsToShow = window.innerWidth < 600 ? 1 : Math.floor(window.innerWidth / itemWidth);
     let currentIndex = 0;
 
     // Función para actualizar la posición del carrusel
@@ -281,8 +282,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Ajuste automático en pantallas pequeñas
     const adjustCarouselSize = () => {
-        itemWidth = window.innerWidth < 480 ? 150 : 210;
-        itemsToShow = Math.floor(window.innerWidth / itemWidth);
+        itemWidth = window.innerWidth < 480 ? 260 : 210; // Se ajusta a 260px en móviles
+        itemsToShow = window.innerWidth < 480 ? 1 : Math.floor(window.innerWidth / itemWidth);
         updateCarouselPosition();
     };
 
@@ -365,6 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
 
 
     document.addEventListener("DOMContentLoaded", () => {
