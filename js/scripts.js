@@ -452,3 +452,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+// Detectar clic en el botón flotante de FAQ y abrir el modal
+document.getElementById("faq-floating-btn").addEventListener("click", function() {
+    const faqModal = document.getElementById("faq-modal");
+    if (faqModal) {
+        faqModal.style.display = "block"; // Abre el modal
+    }
+});

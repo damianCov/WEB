@@ -2170,3 +2170,30 @@ html, body {
     border-left: 4px solid #ff6f00; /* Añadir un borde decorativo opcional */
     transition: background-color 0.3s ease, color 0.3s ease; /* Efecto suave */
 }
+/* ===== Botón Flotante para Preguntas Frecuentes ===== */
+.faq-btn {
+    position: fixed;
+    bottom: 88px; /* 📌 Lo posiciona justo arriba del botón de WhatsApp */
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #c4f8e3; /*  Color  */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: pulse 2s infinite; /* Pulsación periódica */
+    z-index: 1000;
+}
+
+/* 🔹 Efecto Hover */
+.faq-btn:hover {
+    background-color: #e68900;
+    transform: scale(1.1);
+}
