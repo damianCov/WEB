@@ -2194,6 +2194,12 @@ html, body {
 
 /* 🔹 Efecto Hover */
 .faq-btn:hover {
-    background-color: #e68900;
+    background-color: #f5d689;
     transform: scale(1.1);
+}
+
+.faq-btn img {
+    mix-blend-mode: multiply;
+    max-width: 45px;
+    max-height: 45px;
 }
