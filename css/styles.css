@@ -48,7 +48,7 @@ nav{
 @media (max-width: 480px) {
     .logo {
         margin-left: 150px;
-        width: 200px;
+        width: 245px;
         background-color: #f5d689;
     }
     .menu-open .logo {
