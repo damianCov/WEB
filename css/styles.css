@@ -42,6 +42,7 @@ nav{
 @media (max-width: 1260px) {
     .logo {
         margin-left: 150px;
+        height: 120px;
     }
 
 }
@@ -50,6 +51,7 @@ nav{
         margin-left: 150px;
         width: 245px;
         background-color: #f5d689;
+        height: 120px;
     }
     .menu-open .logo {
         width: 150px; /* Mantiene el tamaño fijo cuando se abre el menú */
