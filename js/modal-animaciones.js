@@ -985,3 +985,64 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// ===== Modal para Selvaventuras =====
+document.addEventListener("DOMContentLoaded", () => {
+    const selvaventurasModal = document.getElementById("selvaventuras-modal");
+    const openSelvaventurasModal = document.querySelector(".open-selvaventuras-modal");
+    const closeSelvaventurasModal = document.getElementById("close-selvaventuras-modal");
+
+    // Verificar si los elementos existen
+    if (!selvaventurasModal || !openSelvaventurasModal || !closeSelvaventurasModal) {
+        console.error("Modal o botones no encontrados para Selvaventuras");
+        return;
+    }
+
+    // Abrir el modal
+    openSelvaventurasModal.addEventListener("click", (event) => {
+        event.preventDefault();
+        selvaventurasModal.style.display = "block";
+    });
+
+    // Cerrar el modal
+    closeSelvaventurasModal.addEventListener("click", () => {
+        selvaventurasModal.style.display = "none";
+    });
+
+    // Cerrar el modal al hacer clic fuera del contenido
+    window.addEventListener("click", (event) => {
+        if (event.target === selvaventurasModal) {
+            selvaventurasModal.style.display = "none";
+        }
+    });
+
+    // Manejo de imágenes en el modal
+    const thumbnailsSelvaventuras = document.querySelectorAll("#selvaventuras-modal .thumbnail-gallery img");
+    const featuredImageSelvaventuras = document.getElementById("featured-image-selvaventuras");
+
+    // Verificar si los elementos de las imágenes existen
+    if (!thumbnailsSelvaventuras || !featuredImageSelvaventuras) {
+        console.error("Imágenes de galería no encontradas en Selvaventuras");
+        return;
+    }
+
+    // Agregar eventos a las miniaturas
+    thumbnailsSelvaventuras.forEach((thumbnail) => {
+        thumbnail.addEventListener("click", () => {
+            console.log("Miniatura clickeada:", thumbnail.src);
+            const newSrc = thumbnail.src; // Obtiene la fuente de la miniatura
+            featuredImageSelvaventuras.src = newSrc; // Cambia la imagen grande
+        });
+    });
+
+    // Botón para abrir el modal de contacto desde el modal de Selvaventuras
+    const openContactFromSelvaventuras = document.getElementById("open-contact-modal-from-selvaventuras");
+    const contactModal = document.getElementById("contact-modal");
+
+    if (openContactFromSelvaventuras && contactModal) {
+        openContactFromSelvaventuras.addEventListener("click", (event) => {
+            event.preventDefault();
+            selvaventurasModal.style.display = "none"; // Cerrar el modal de selvaventuras
+            contactModal.style.display = "block"; // Abrir el modal de contacto
+        });
+    }
+});
