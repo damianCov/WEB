@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aninaciones - Universo Bellotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="js/scripts.js" defer></script>
+    <script src="js/modal-animaciones.js" defer></script>
+    <script src="js/faq-modal.js" defer></script>
+
+
+</head>
+<body>
+    <a href="https://bit.ly/WhatsApp-Animaciones" class="whatsapp-float" target="_blank">
+        <img src="images/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+    <!-- Botón flotante para Preguntas Frecuentes -->
+<button id="faq-floating-btn" class="floating-btn faq-btn">    
+    <img src="images/faq.png" alt="faq">
+    <!--❓-->
+</button>
+
+    <header>
+        <div class="header-container">
+            <nav class="nav">
+                <img src="images/logo.png" alt="Logo Universo Bellotas" class="logo">
+                <button class="menu-toggle" aria-label="Abrir/Cerrar menú">&#9776;🔍</button>
+
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                    <li class="submenu">
+                        <a href="#" onclick="toggleSubMenu(event)">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="submenu-items">
+                            <li><a href="animaciones.html">Animaciones</a></li>
+                            <li><a href="colegios-instituciones.html">Escuelas</a></li>
+                            <li><a href="corporativos.html">Corporativos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="javascript:void(0);" id="open-contact-modal">Contacto</a></li>
+                    <div class="social-links2">
+                        <li><a href="https://instagram.com/universobellotas" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.youtube.com/user/UniversoBellotas" target="_blank"><img src="images/youtube.png" alt="YouTube"></a></li>
+                        <li><a href="https://ar.pinterest.com/UniversoBellotas/" target="_blank"><img src="images/pinterest.png" alt="Pinterest"></a></li>
+                        <li><a href="https://www.linkedin.com/company/universo-bellotas/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+                        <li><a href="https://es-la.facebook.com/universobellotas" target="_blank"><img src="images/facebook.png" alt="Facebook"></a></li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<!-- Modal de Contacto -->
+<div id="contact-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Enviá tu consulta</h2>
+        <p>
+            Completa el formulario con los datos necesarios y nos pondremos en contacto contigo a la brevedad.
+            Estamos aquí para ayudarte con cualquier consulta sobre nuestros servicios.
+        </p>
+        <form id="contact-form" action="send_email.php" method="POST">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <span class="error-message" id="error-nombre"></span>
+            </div>
+            <div>
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <span class="error-message" id="error-apellido"></span>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="error-email"></span>
+            </div>
+            <div>
+                <label for="whatsapp">WhatsApp</label>
+                <input type="number" id="whatsapp" name="whatsapp" required>
+                <span class="error-message" id="error-whatsapp"></span>
+            </div>
+            <div>
+                <label for="detalles">Nombre del Agasajado / Institución / Empresa</label>
+                <input type="text" id="detalles" name="detalles" required>
+                <span class="error-message" id="error-detalles"></span>
+            </div>
+            <div>
+                <label for="servicio">Seleccione el Servicio a consultar</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="" disabled selected>Selecciona un servicio</option>
+                    <option value="animaciones">Animaciones/Talleres/Espectáculos</option>
+                    <option value="evento-escuelas">Evento en Escuelas</option>
+                    <option value="eventos-corporativos">Eventos Corporativos</option>
+                </select>
+                <span class="error-message" id="error-servicio"></span>
+            </div>
+            <div>
+                <label for="fecha">Día/hora estimada del evento</label>
+                <input type="datetime-local" id="fecha" name="fecha" required>
+                <span class="error-message" id="error-fecha"></span>
+            </div>
+            <div>
+                <label for="zona-evento">Zona a Realizar el Evento</label>
+                <select id="zona-evento" name="zona-evento" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="dentro-caba">Dentro de CABA</option>
+                    <option value="fuera-caba">Fuera de CABA</option>
+                </select>
+                <span class="error-message" id="error-zona-evento"></span>
+            </div>
+            <div>
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                <span class="error-message" id="error-mensaje"></span>
+            </div>
+            <div>
+                <label id="anti-robot-label">Pregunta anti-robot:</label>
+                <input type="text" id="anti-robot" name="anti-robot" required>
+                <input type="hidden" id="correct-answer">
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Modal para Animaciones 3 a 5 años -->
+<div id="animaciones3a5-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-animaciones3a5-modal">&times;</span>
+        <h2>Animaciones 3 a 5 años</h2>
+        <p>En esta etapa, los juegos se vuelven más dinámicos, estimulando la psicomotricidad y la creatividad. Proponemos circuitos de obstáculos, juegos de emboque, de memoria y sonoros, además de títeres y juegos de roles.</p>
+    <p>Duración de las Actividades Opciones:</p>
+    <ul>
+        <li><strong>1 hora de Duración:</strong> Se realizan las actividades con solo un corte para comer o beber según lo que planifiquemos junto a la familia. 
+        </li>
+    <li><strong>2 horas de Duración:</strong> A las actividades los acompañamos en un corte de comida, torta y piñata  según lo que planifiquemos junto a la familia.
+    </li>
+    </ul>
+<p> Las animaciones pueden tener temáticas especiales:</p>       
+        <ul>
+            <li>
+                <span>📚</span> <strong>A Puro Cuento:</strong> Animación que invita a jugar creando historias fantásticas, donde vivimos diferentes aventuras con personajes mágicos como piratas, princesas, duendes y dragones...
+
+                Las actividades las proponemos dependiendo de los intereses de las infancias que participan de la animación.
+                
+                Algunas de estas propuestas son: búsqueda del tesoro, memotest fantástico, elegí tu propia aventura, circuito de destreza pirata y mucho más.
+            </li>
+            <li>
+                <span>👾 </span> <strong>De Otro Planeta:</strong> Animación que se basa en la cooperación, trabajo en equipo y estimulación motriz a través de una aventura en el espacio.
+
+                Las actividades las proponemos dependiendo de los intereses de las infancias que participan de la animación.
+                
+                Algunas de estas propuestas pueden ser: circuitos de destreza, aros y pelotas, bailes espaciales y mucho más.
+            </li>
+            <li>
+                <span>🎪</span> <strong>Circo:</strong> Animación que se basa en los juegos y los colores súper divertidos del circo, con diversas actividades que estimulan la destreza, la coordinación y el trabajo en equipo.
+
+                Las actividades las proponemos dependiendo de los intereses de las infancias que participan de la animación.
+                
+                Algunas de estas propuestas pueden ser: juegos con aros, emboques, zancos, baile con dragonas y mucho más.
+            </li>
+            <li>
+                <span>🌿</span> <strong>Exploradores:</strong> Animación que se basa en juegos que acompañan la curiosidad, la exploración y el ingenio.
+
+                Las actividades las proponemos dependiendo de los intereses de las infancias que participan de la animación.
+                
+                Algunas de estas propuestas pueden ser: exploración con lupas y linternas, juegos con pelotas, encastres, carreras de postas y mucho más.
+                
+                
+            </li>
+        </ul>
+       
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-animaciones-3-5/miniatura1.jpg" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-animaciones-3-5/miniatura2.jpg" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-animaciones-3-5/miniatura3.jpg" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-animaciones-3-5/miniatura4.jpg" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-animaciones-3-5/miniatura5.jpg" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-animaciones-3-5/miniatura1.jpg" id="featured-image" alt="Imagen destacada">
+            </div>
+        </div>
+        
+
+              <!-- Botones -->
+      <div class="modal-buttons">
+          <button class="button consult-button" id="open-contact-modal-from-animaciones">Consultar</button>
+          <a href="https://bg80.short.gy/WhatsApp-Animaciones3a5" class="button whatsapp-button" target="_blank">WhatsApp</a>
+          
+     </div>
+
+    </div>
+</div>
+    </div>
+</div>
+<!-- Modal para Animaciones 5 a 7 años -->
+<div id="animaciones5a7-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-animaciones5a7-modal">&times;</span>
+        <h2>Animaciones 5 a 7 años</h2>
+        <p>Los niños de esta edad buscan desafíos, exploración y trabajo en equipo. Nuestra animación incluye juegos que fomentan la creatividad y la cooperación, como búsquedas del tesoro, circuitos de obstáculos, carreras y acertijos.</p>
+        <p>Duración de las Actividades Opciones:</p>
+        <ul>
+            <li><strong>1 hora de Duración:</strong> Se realizan las actividades con solo un corte para comer o beber según lo que planifiquemos junto a la familia. 
+            </li>
+        <li><strong>2 horas de Duración:</strong> A las actividades los acompañamos en un corte de comida, torta y piñata  según lo que planifiquemos junto a la familia.
+        </li>
+        </ul>
+        <p>Podés elegir entre estas temáticas:</p>
+        <ul>
+            <li>
+                <span>⚡</span> <strong>Máximo Adrenalina:</strong> Animación con actividades deportivas y de trabajo en equipo. Utilizamos Juegos que estimulen la exploración del cuerpo, que fomenten la creatividad y la imaginación, que ayuden a resolver problemas. Juegos que fomenten la cooperación y la colaboración, una propuesta con juegos deportivos que fortalezcan la coordinación, la resistencia y el trabajo en equipo.
+                
+                Algunas de estas propuestas son: búsqueda del tesoro, memotest fantástico, elegí tu propia aventura, circuito de destreza pirata y mucho más.
+            </li>
+            <li>
+                <span>📚</span> <strong>A Puro Cuento:</strong> Animación que invita a jugar creando historias fantásticas, donde vivimos diferentes aventuras con personajes mágicos como piratas, princesas, duendes y dragones...
+
+                Las actividades las proponemos dependiendo de los intereses de las infancias que participan de la animación.
+                
+                Algunas de estas propuestas son: búsqueda del tesoro, memotest fantástico, elegí tu propia aventura, circuito de destreza pirata y mucho más.
+            </li>
+            <li>
+                <span>👾 </span> <strong>De Otro Planeta:</strong> Animación que se basa en la cooperación, trabajo en equipo y estimulación motriz a través de una aventura en el espacio.
+
+                Las actividades las proponemos dependiendo de los intereses de las infancias que participan de la animación.
+                
+                Algunas de estas propuestas pueden ser: circuitos de destreza, aros y pelotas, bailes espaciales y mucho más.
+            </li>
+            <li>
+                <span>🎪</span> <strong>Circo:</strong> Animación que se basa en los juegos y los colores súper divertidos del circo, con diversas actividades que estimulan la destreza, la coordinación y el trabajo en equipo.
+
+                Las actividades las proponemos dependiendo de los intereses de las infancias que participan de la animación.
+                
+                Algunas de estas propuestas pueden ser: juegos con aros, emboques, zancos, baile con dragonas y mucho más.
+            </li>
+            <li>
+                <span>🌿</span> <strong>Exploradores:</strong> Animación que se basa en juegos que acompañan la curiosidad, la exploración y el ingenio.
+
+                Las actividades las proponemos dependiendo de los intereses de las infancias que participan de la animación.
+                
+                Algunas de estas propuestas pueden ser: exploración con lupas y linternas, juegos con pelotas, encastres, carreras de postas y mucho más.
+                
+                
+            </li>
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-animaciones-5-7/miniatura1.jpg" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-animaciones-5-7/miniatura2.jpg" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-animaciones-5-7/miniatura3.jpg" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-animaciones-5-7/miniatura4.jpg" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-animaciones-5-7/miniatura5.jpg" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-animaciones-5-7/miniatura1.jpg" id="featured-image-5a7" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-animaciones-5a7">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Animaciones5a7" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para Animaciones 7 a 13 años -->
+<div id="animaciones7a13-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-animaciones7a13-modal">&times;</span>
+        <h2>Animaciones 7 a 12 años</h2>
+        <p>Para los más grandes, diseñamos experiencias vibrantes y desafiantes que potencian la creatividad, la exploración y la cooperación. Cada propuesta está pensada para fomentar la expresión, el pensamiento crítico y el juego en equipo, asegurando momentos inolvidables con dinámicas adaptadas a sus intereses y energía.</p>
+        <p>Duración de las Actividades Opciones:</p>
+        <ul>
+        <li><strong>2 horas de Duración:</strong> A las actividades los acompañamos en un corte de comida, torta y piñata  según lo que planifiquemos junto a la familia.
+        </li>
+        </ul>
+        <p>Podés elegir entre estas temáticas:</p>
+        <ul>
+            <li>
+                <span>⚡</span> <strong>Máximo Adrenalina:</strong> Animación con actividades deportivas y de trabajo en equipo. Utilizamos Juegos que estimulen la exploración del cuerpo, que fomenten la creatividad y la imaginación, que ayuden a resolver problemas,Juegos que fomenten la cooperación y el compartir. una propuesta con juegos deportivos que fortalezcan la coordinación, la resistencia y el trabajo en equipo.
+            </li>
+            <li>
+                <span>🔬 </span> <strong>Locuras de Laboratorio:</strong> Una propuesta de ciencia divertida donde los niños y niñas se convierten en pequeños científicos. A través de experimentos interactivos y la creación de inventos, exploramos fenómenos científicos de manera lúdica y educativa, despertando la curiosidad y el pensamiento crítico.
+
+            </li>
+            <li>
+                <span>🎬</span> <strong>De Película:</strong> Una experiencia teatral completa donde los participantes crean su propio cortometraje. Desde la construcción del guion y la puesta en escena hasta la grabación final, cada niño o niña asume un rol dentro de la producción, combinando creatividad, actuación y trabajo en equipo para dar vida a su propia historia cinematográfica.
+
+            </li>
+            <li>
+                <span>🎸 </span> <strong>Pop & Rock:</strong> Para los amantes de la música y el baile, esta propuesta invita a sumergirse en el mundo del espectáculo. Con coreografías, caracterización, maquillaje y mucha actitud, cada participante se convierte en una estrella, disfrutando de una experiencia llena de ritmo, expresión y diversión.
+
+            </li>
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-animaciones-7-12/miniatura1.jpg" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-animaciones-7-12/miniatura2.jpg" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-animaciones-7-12/miniatura3.jpg" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-animaciones-7-12/miniatura4.jpg" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-animaciones-7-12/miniatura5.jpg" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-animaciones-7-12/miniatura1.jpg" id="featured-image-7a13" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-animaciones-7a13">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Animaciones7a13" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para Animaciones 1 a 3 años -->
+<div id="animaciones1a3-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-animaciones1a3-modal">&times;</span>
+        <h2>Animaciones 1 a 3 años</h2>
+        <p>Nuestra animación para peques de 1 a 3 años está diseñada para ser una experiencia sensorial y afectiva. Con un ritmo tranquilo y materiales seguros, ofrecemos juegos que invitan a la exploración, la imaginación y el vínculo con sus familias. Las familias pueden elegir participar activamente o simplemente observar mientras los niños descubren el mundo a su manera. Duración: 1 hora y se adapta a los tiempos de cada pequeño, asegurando una experiencia cómoda y placentera.</p>
+
+        <p>Actividades en un entorno de juego libre y natural:</p>
+        <ul>
+            <li>
+                <span>🎵🎤</span> <strong>Rondas de canciones</strong>
+            </li>
+            <li>
+                <span>✨🎈</span> <strong>Burbujas</strong>
+            </li>
+            <li>
+                <span>📚💃</span> <strong>Narraciones y baile con cintas de colores</strong>
+            </li>
+            
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/miniatura1.jpg" alt="Miniatura 1">
+                <img src="images/miniatura2.jpg" alt="Miniatura 2">
+                <img src="images/miniatura3.jpg" alt="Miniatura 3">
+                <img src="images/miniatura4.jpg" alt="Miniatura 4">
+                <img src="images/miniatura5.jpg" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/miniatura1.jpg" id="featured-image-1a3" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-animaciones-1a3">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Animaciones1a3" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para Taller de Reciclado -->
+<div id="taller-reciclado-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-taller-reciclado-modal">&times;</span>
+        <h2>Talleres de Reciclado y Reutilización</h2>
+        <p>Creatividad y reciclaje en acción. Un espacio donde el arte y la sustentabilidad se encuentran para transformar materiales en nuevas creaciones. A través del juego y la experimentación, los niños reutilizan elementos descartables para dar vida a cuadros, telares y juguetes únicos, fomentando la imaginación y el cuidado del planeta. ¡Arte, diversión y conciencia ecológica en cada creación!</p>
+
+        <p>Podés disfrutar de actividades como:</p>
+        <ul>
+            <li><span>♻️</span> <strong>Taller de Arte con Reciclado:</strong> Se trabajan las 3R (Reciclar, Reducir y Reutilizar) de manera lúdica y creativa. Con materiales como cartón, hueveras, lanas, pinturas, botones y tapitas, los niños crean cuadros de animalitos o pequeños telares. Cada uno se lleva su obra a casa.
+            </li>
+            <li><span>🛠️</span> <strong>Taller de Eco-Juguetes:</strong> Se reutilizan materiales descartables, conos de papel, tapitas, envases plásticos, corchos, palitos de brochet, para construir muñecos, marionetas e instrumentos musicales. Los participantes desarrollan su creatividad mientras generan conciencia ecológica. Cada niño se lleva su eco-juguete.
+            </li>
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-reciclado/1.png" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-reciclado/2.png" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-reciclado/3.png" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-reciclado/4.png" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-reciclado/5.png" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-reciclado/1.png" id="featured-image-reciclado" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-reciclado">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Talleres" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para Taller de Huerta -->
+<div id="taller-huerta-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-taller-huerta-modal">&times;</span>
+        <h2>Talleres de Huerta</h2>
+        <p>Naturaleza y sustentabilidad. Una invitación a explorar el mundo natural a través de experiencias prácticas y lúdicas. Los niños aprenden sobre jardinería, siembra y el ciclo de las plantas mientras crean su propia huerta o elaboran bombas de semillas. Un espacio de juego y aprendizaje que fomenta la conciencia ecológica y el respeto por el ambiente. ¡Manos a la tierra!</p>
+
+        <p>Podés disfrutar de talleres como:</p>
+        <ul>
+            <li><span>🌱</span> <strong>Taller de Huerta en Cajones:</strong> os participantes aprenden sobre jardinería de manera divertida: siembra de plantines, materiales ecológicos, procesos y tiempos de cosecha. Cada niño se lleva su cajón con dos plantines y un instructivo de cuidado. La ambientación incluye sombreros de paja, delantales, palitas y contenedores naturales para una experiencia inmersiva.
+            </li>
+            <li><span>🌿</span> <strong>Taller de Bombas de Semillas:</strong> Se utilizan semillas de estación, cartón reciclado y tierra para crear bombas de semillas que los niños podrán dejar en distintos lugares y observar su crecimiento. Cada participante se lleva 2 a 4 bombas en una bolsa ecológica con detalles de nuestra marca. El taller se desarrolla en un ambiente natural y relajado con sombreros de paja, delantales y centros de mesa temáticos.
+            </li>
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-huerta/1.png" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-huerta/2.png" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-huerta/3.png" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-huerta/4.png" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-huerta/5.png" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-huerta/1.png" id="featured-image-huerta" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-huerta">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Talleres" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para Taller de Arte y Naturaleza -->
+<div id="taller-arte-naturaleza-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-taller-arte-naturaleza-modal">&times;</span>
+        <h2>Talleres de Arte y Creatividad</h2>
+        <p>Un espacio donde el arte se convierte en una experiencia sensorial y lúdica. A través de distintas técnicas y materiales, los niños exploran colores, texturas y formas, potenciando su imaginación y habilidades creativas. Cada propuesta invita a experimentar, jugar y llevarse una creación única.</p>
+
+        <p>Podés disfrutar de talleres como:</p>
+        <ul>
+            <li><span>🎨</span> <strong>Taller de Arte y Naturaleza:</strong> Espacio de exploración sensorial y artística con materiales naturales. Los niños observan, sienten y experimentan con texturas, sonidos y colores a través de lupas, bandejas sensoriales, piedras, hojas, semillas, telas y maderas. Luego, plasman su creatividad con pintura y modelado. Cada participante se lleva su creación.</li>
+            <li><span>🧢</span> <strong>Taller de Decoración de Gorras y Bolsos de Tela:</strong> Cada niño diseña su propia gorra o bolso de tela utilizando pintura para tela, marcadores especiales y otras técnicas creativas. Se llevan sus creaciones para seguir usándolas en su día a día.
+            </li>
+            
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-arte/1.png" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-arte/2.png" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-arte/3.png" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-arte/4.png" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-arte/5.png" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-arte/1.png" id="featured-image-arte-naturaleza" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-arte-naturaleza">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Talleres" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para Taller de Burbujas -->
+<div id="taller-burbujas-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-taller-burbujas-modal">&times;</span>
+        <h2>Taller de Burbujas</h2>
+        <p>En Universo Bellotas, el Taller de Burbujas es una experiencia mágica donde los niños descubren el arte de crear burbujas gigantes y aprender técnicas para jugar y experimentar con ellas de manera creativa.</p>
+
+        <p>Podés disfrutar de actividades como:</p>
+        <ul>
+            <li><span>💦</span> <strong>Burbujas Gigantes:</strong> Crear burbujas enormes utilizando herramientas especiales.</li>
+            <li><span>🌈</span> <strong>Burbujas Arcoíris:</strong> Experimentar con colores y luces en las burbujas.</li>
+            <li><span>🎉</span> <strong>Juegos con Burbujas:</strong> Divertirse con dinámicas grupales usando burbujas.</li>
+        </ul>
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-burbujas/miniatura1.jpg" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-burbujas/miniatura2.jpg" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-burbujas/miniatura3.jpg" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-burbujas/miniatura4.jpg" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-burbujas/miniatura5.jpg" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-burbujas/miniatura1.jpg" id="featured-image-burbujas" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-burbujas">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Talleres" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para Selvaventuras -->
+<div id="selvaventuras-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-selvaventuras-modal">&times;</span>
+        <h2>SelvAventuras</h2>
+        <p>Una Expedición a la selva misionera, espectáculo que transporta a los niños a una selva mágica llena de sorpresas, aventuras y conexión con la naturaleza. Un viaje donde se combina la diversión con aprendizajes sobre el cuidado del medio ambiente. <strong> Duración aproximada: 45 minutos.</strong></p>
+
+        <p>Actividades destacadas:</p>
+        <ul>
+            <li><span>🌴</span> <strong>Exploración de la Selva:</strong> Dinámicas grupales para explorar la selva mágica.</li>
+            <li><span>🐆</span> <strong>Historias de Animales:</strong> Cuentos interactivos con mensajes de cuidado ambiental.</li>
+            <li><span>🎶</span> <strong>Juegos Musicales:</strong> Canciones y ritmos inspirados en la naturaleza.</li>
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-selvaventuras/1.png" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-selvaventuras/2.png" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-selvaventuras/3.png" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-selvaventuras/4.png" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-selvaventuras/5.png" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-selvaventuras/1.png" id="featured-image-selvaventuras" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-selvaventuras">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Espectaculos" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para EcoPayasadas -->
+<div id="ecopayasadas-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-ecopayasadas-modal">&times;</span>
+        <h2>EcoPayasadas</h2>
+        <p>Un espectáculo lleno de humor, creatividad y mensajes educativos sobre el cuidado del medio ambiente. A través de personajes divertidos y dinámicas participativas, los niños se divierten mientras aprenden la importancia de cuidar nuestro planeta.<strong> Duración aproximada: 45 minutos.</strong></p>
+
+        <p>✨ Actividades dentro del espectáculo:</p>
+        <ul>
+            <li><span>🤹</span> <strong>Escenas de humor y acrobacias:</strong> Situaciones cómicas y sorprendentes donde los personajes interactúan con el público, transmitiendo de forma divertida la importancia de las 3R.</li>
+            <li><span>💦</span> <strong>Show de burbujas gigantes:</strong> Momentos mágicos donde las burbujas simbolizan la fragilidad del planeta y la necesidad de cuidarlo.</li>
+            <li><span>♻️</span> <strong>Juego interactivo sobre reciclaje:</strong> Los niños participan en desafíos lúdicos que los ayudan a comprender cómo reducir, reutilizar y reciclar en su vida cotidiana.</li>
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-ecopayasadas/1.png" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-ecopayasadas/2.png" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-ecopayasadas/3.png" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-ecopayasadas/4.png" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-ecopayasadas/5.png" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-ecopayasadas/1.png" id="featured-image-ecopayasadas" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-ecopayasadas">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Espectaculos" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para Leyendas de Pacha -->
+<div id="leyendas-pacha-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-leyendas-pacha-modal">&times;</span>
+        <h2>Leyendas de Pacha</h2>
+        <p>Leyendas de Pacha es una experiencia mágica donde exploramos cuentos ancestrales y el legado cultural de nuestra tierra. A través de actividades interactivas y narrativas fascinantes, los niños aprenden valores importantes mientras se divierten.<strong> Duración aproximada: 45 minutos.</strong> </p>
+
+        <p>✨ Actividades dentro del espectáculo:</p>
+        <ul>
+            <li><span>🌍</span> <strong>Historias de la Tierra:</strong> Narraciones que conectan con la naturaleza y la cultura ancestral.</li>
+            <li><span>🖌️</span> <strong>Pintura Tribal:</strong> Talleres de arte basados en técnicas indígenas.</li>
+            <li><span>🎶</span> <strong>Música de Raíces:</strong> Juegos y canciones tradicionales que celebran nuestras raíces.</li>
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/img-animaciones/img-leyendas-pacha/1.png" alt="Miniatura 1">
+                <img src="images/img-animaciones/img-leyendas-pacha/2.png" alt="Miniatura 2">
+                <img src="images/img-animaciones/img-leyendas-pacha/3.png" alt="Miniatura 3">
+                <img src="images/img-animaciones/img-leyendas-pacha/4.png" alt="Miniatura 4">
+                <img src="images/img-animaciones/img-leyendas-pacha/5.png" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/img-animaciones/img-leyendas-pacha/1.png" id="featured-image-leyendas-pacha" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-leyendas-pacha">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Espectaculos" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<!-- Modal para La Leyenda del Bosque Verde -->
+<div id="bosque-verde-modal" class="modal animaciones-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-bosque-verde-modal">&times;</span>
+        <h2>La Leyenda del Bosque Verde</h2>
+        <p>En Universo Bellotas, La Leyenda del Bosque Verde nos transporta a un mundo mágico donde el cuidado del medio ambiente y las historias ancestrales cobran vida. Con actividades interactivas y dinámicas grupales, los niños se conectan con la naturaleza de una manera única y educativa.</p>
+
+        <p>Actividades destacadas:</p>
+        <ul>
+            <li><span>🌳</span> <strong>Guardianes del Bosque:</strong> Juegos cooperativos para proteger la flora y fauna del bosque.</li>
+            <li><span>🎨</span> <strong>Arte Natural:</strong> Creaciones artísticas usando elementos reciclables y naturales.</li>
+            <li><span>🔍</span> <strong>Aventura Ecológica:</strong> Exploración del bosque con mapas y pistas educativas.</li>
+        </ul>
+
+        <!-- Miniaturas de la galería -->
+        <div class="modal-gallery">
+            <div class="thumbnail-gallery">
+                <img src="images/bosque-verde-miniatura1.jpg" alt="Miniatura 1">
+                <img src="images/bosque-verde-miniatura2.jpg" alt="Miniatura 2">
+                <img src="images/bosque-verde-miniatura3.jpg" alt="Miniatura 3">
+                <img src="images/bosque-verde-miniatura4.jpg" alt="Miniatura 4">
+                <img src="images/bosque-verde-miniatura5.jpg" alt="Miniatura 5">
+            </div>
+            <div class="featured-image">
+                <img src="images/bosque-verde-miniatura1.jpg" id="featured-image-bosque-verde" alt="Imagen destacada">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+            <button class="button consult-button" id="open-contact-modal-from-bosque-verde">Consultar</button>
+            <a href="https://bg80.short.gy/WhatsApp-Espectaculos" class="button whatsapp-button" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</div>
+
+
+        <main> 
+            <!-- Título entre el encabezado y el slider -->
+        <div class="titulo">
+            <h1>Aninaciones, Talleres y Espectáculos</h1>
+            </div> 
+                
+        <p>Te invitamos a descubrir nuestras animaciones, talleres y espectáculos, donde el arte, el juego y el cuidado del planeta se combinan para crear experiencias inolvidables. Cada evento está diseñado con creatividad y dedicación, adaptándose a distintas edades, intereses y necesidades. Conocé los detalles que hacen de cada una de nuestras propuestas una ocasión especial, inspirando, divirtiendo y conectando con los valores de Universo Bellotas.</p>
+        <h3>Animaciones</h3>
+        <section class="highlights">
+                <div class="highlight">
+                    <img src="images/animacion-ronda.jpg" alt="animacion-ronda">
+                    <h2>Animaciones 1 a 3 años</h2>
+                    <p>Una animación pensada con amorosidad y respeto, ideal para los más pequeños. Juegos sensoriales, burbujas, baile con cintas y cuentos crean un ambiente seguro y estimulante. Las familias pueden participar activamente o acompañar como espectadores...¿Listos para descubrir más?</p>
+                    <a href="javascript:void(0);" class="button open-animaciones1a3-modal">Leer Más</a>
+
+                </div>
+                <div class="highlight"> 
+                  <!-- Animaciones 3 a 5 años -->
+                    <div class="highlight">
+                        <img src="images/animaciones-3a5.jpg" alt="Animación 3 a 5 años">
+                        <h2>Animaciones 3 a 5 años</h2>
+                        <p>Diversión asegurada con juegos de memoria, circuitos de obstáculos, títeres y más. Animaciones con temáticas como piratas, princesas y otros cuentos, espacial, circo o exploradores. Diseñadas para estimular la imaginación, la psicomotricidad y la cooperación...¿Listos para descubrir más?</p>
+                        <a href="javascript:void(0);" class="button open-animaciones3a5-modal">Leer Más</a>
+
+                    </div>
+                
+                </div>
+                
+                <div class="highlight">
+                    <img src="images/img-animaciones/img-animaciones-5-7/miniatura2.jpg" alt="Animaciones 5 a 7 años">
+                    <h2>Animaciones 5 a 7 años </h2>
+                    <p>Juegos más desafiantes para niños con mayor autonomía. Se agregan actividades como:  Búsqueda del tesoro, circuitos, carreras, mímica y acertijos. Juegos cooperativos y coordinación, temáticas especiales como “Máximo Adrenalina"...¿Listos para descubrir más?</p>
+                    <a href="javascript:void(0);" class="button open-animaciones5a7-modal">Leer Más</a>
+
+                </div>
+                <div class="highlight">
+                    <img src="images/corporativos.jpg" alt="Animaciones 7 a 13 años">
+                    <h2>Animaciones 7 a 12 años</h2>
+                    <p>Experiencias interactivas y recreativas con mucha onda: retos deportivos, teatro, ciencia y baile. Temáticas especiales como "Locuras de Laboratorio", "De Película" y "Pop & Rock". Juegos creativos y participativos para desafiar la imaginación y divertirse...¿Listos para descubrir más?</p>
+                    <a href="javascript:void(0);" class="button open-animaciones7a13-modal">Leer Más</a>
+
+                </div>
+                
+            </section>
+            <h3>Talleres</h3>   
+            <section class="highlights">
+            <div class="highlight">
+                <img src="images/taller-reciclado.jpg" alt="Reciclado">
+                <h2>Talleres de Reciclado</h2>
+                <p>Descubrí talleres únicos donde el arte y el reciclaje se combinan para crear nuevas formas de jugar y expresarse. A través de materiales reutilizados, los niños y niñas desarrollan su imaginación mientras aprenden sobre el cuidado del planeta. ¡Sumate y descubrí cómo transformar lo cotidiano en arte!...¿Listos para descubrir más?
+                </p>
+                <a href="javascript:void(0);" class="button open-taller-reciclado-modal">Leer Más</a>
+
+            </div>
+            <div class="highlight">
+                <img src="images/huerta.jpg" alt="Huerta">
+                <h2>Talleres de Huerta</h2>
+                <p>Un espacio donde los niños y niñas descubren el mundo de la naturaleza a través del juego. Aprenden sobre siembra, compost y el ciclo de las plantas, experimentando con la tierra y las semillas. Una propuesta para conectar con el ambiente y fomentar hábitos sustentables. ¡Sumate a cultivar juntos!...¿Listos para descubrir más?</p>
+                <a href="javascript:void(0);" class="button open-taller-huerta-modal">Leer Más</a>
+
+            </div>
+            <div class="highlight">
+                <img src="images/arte.jpg" alt="Arte y Creatividad">
+                <h2>Talleres de Arte y Creatividad
+                </h2>
+                <p>Talleres donde el arte y el entorno natural se fusionan para despertar la creatividad. A través de elementos como hojas, ramas, semillas y piedras, los niños y niñas experimentan con texturas y colores, creando obras únicas mientras exploran la belleza del mundo que los rodea. ¡Sumate a esta experiencia sensorial!...¿Listos para descubrir más?</p>
+                <a href="javascript:void(0);" class="button open-taller-arte-naturaleza-modal">Leer Más</a>
+
+            </div>
+            <div class="highlight">
+                <img src="images/img-animaciones/img-burbujas/miniatura5.jpg" alt="Burbujas">
+                <h2>Taller de Burbujas</h2>
+                <p>Un espacio donde niños y niñas exploran la magia de las burbujas a través del juego y la experimentación. Aprenden a crear burbujas gigantes, descubrir su composición y jugar con formas y tamaños. Una propuesta interactiva que combina diversión, ciencia y asombro. ¡Sumate a soplar y crear!...¿Listos para descubrir más?</p>
+                <a href="javascript:void(0);" class="button open-taller-burbujas-modal">Leer Más</a>
+
+            </div>
+        </section>
+        <h3>Espectáculos</h3>   
+        <section class="highlights">
+        <div class="highlight">
+        <img src="images/SelvaAventuras.jpeg" alt="Salvaventuras">
+        <h2>SelvAventuras</h2>
+        <p>Una expedición a la selva misionera donde descubrimos la flora y fauna a través de leyendas, títeres y juegos. Los niños exploran la biodiversidad y comprenden la importancia de su preservación.
+
+            Entre leyendas, títeres, música y juegos.....</p>
+        <a href="javascript:void(0);" class="button open-selvaventuras-modal">Leer Más</a>
+
+    </div>
+    <div class="highlight">
+        <img src="images/animaciones-3a5.jpg" alt="EcoPayasadas">
+        <h2>EcoPayasadas</h2>
+        <p>A puro humor, burbujas y acrobacias, este espectáculo nos enseña las 3R Reducir, Reutilizar y Reciclar. A través de situaciones cómicas, el público se involucra activamente y aprende a generar menos desperdicios. Música y Juegos.
+        </p>
+        <a href="javascript:void(0);" class="button open-ecopayasadas-modal">Leer Más</a>
+
+    </div>
+    <div class="highlight">
+        <img src="images/img-animaciones/img-leyendas-pacha/4.png" alt="Leyendas de Pacha">
+        <h2>Leyendas de Pacha </h2>
+        <p>Un personaje muy especial acompaña al público en un recorrido por Argentina, contando leyendas tradicionales que resaltan la relación entre la naturaleza y la cultura. Una aventura llena de relatos, canciones y conciencia ecológica.</p>
+        <a href="javascript:void(0);" class="button open-leyendas-pacha-modal">Leer Más</a>
+
+    </div>
+    <div class="highlight">
+        <img src="images/BosqueVerde.jpg" alt="Bosque Verde">
+        <h2>La Leyenda del Bosque Verde</h2>
+        <p>En un reino lejano, un temible dragón amenaza el Bosque Verde. Con humor, aventuras y la emotiva musicalización en vivo de una violinista, esta historia medieval invita a reflexionar sobre el cuidado del planeta en una experiencia única y envolvente.</p>
+        <a href="javascript:void(0);" class="button open-bosque-verde-modal2">Muy Pronto </a>
+
+    </div>
+    </section>
+        </main>
+
+        <footer>
+            <div class="contact-info">
+                <p>Contacto: <a href="javascript:void(0);" id="open-contact-modal-footer">info@universobellotas.com.ar</a></p>
+                <p>WhatsApp: <a href="https://bit.ly/WhatsApp-Animaciones">11-6248-8210</a></p>
+                <!-- Enlace para abrir el modal de Preguntas Frecuentes -->
+                <p>Acceder a: <a href="javascript:void(0);" id="open-faq-modal">Preguntas Frecuentes</a></p>
+            </div>
+            <p class="copyright">&copy; 2024 Universo Bellotas. Todos los derechos reservados.</p>
+        </footer>
+        
+        <!-- Modal faq -->
+        <div id="faq-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" id="close-faq-modal">&times;</span>
+                <h2>Preguntas Frecuentes</h2>
+                <p>Valoramos la transparencia y la comodidad de nuestros clientes. Para brindarte una experiencia más fluida, hemos reunido una lista de preguntas frecuentes y sus respuestas correspondientes.</p>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Qué tipos de eventos atienden?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            En Universo Bellotas atendemos una amplia variedad de eventos, incluyendo cumpleaños, fiestas escolares, eventos corporativos, fiestas temáticas y mucho más.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Cuánto tiempo dura una animación típica?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Las animaciones típicas tienen una duración de entre 1 y 2 horas, dependiendo del tipo de evento y la actividad contratada.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Qué edad deben tener los niños para participar en las animaciones?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Las actividades están diseñadas para niños de todas las edades, desde pequeños hasta adolescentes. Nos adaptamos a cada grupo.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Ofrecen paquetes de animación que incluyan decoración y catering?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Sí, ofrecemos paquetes completos que incluyen decoración temática, catering y animación, para que no tengas que preocuparte por nada.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>

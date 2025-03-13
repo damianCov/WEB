@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Reserva - Universo Bellotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="js/scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <nav class="nav">
+                <img src="images/logo.png" alt="Logo Universo Bellotas" class="logo">
+                <button class="menu-toggle" aria-label="Abrir/Cerrar menú" onclick="toggleMenu()">&#9776;🔍</button>
+
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                    <li class="submenu">
+                        <a href="#" onclick="toggleSubMenu(event)">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="submenu-items">
+                            <li><a href="animaciones.html">Animaciones</a></li>
+                            <li><a href="colegios-instituciones.html">Escuelas</a></li>
+                            <li><a href="corporativos.html">Corporativos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <div class="social-links2">
+                        <li><a href="https://instagram.com/universobellotas" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.youtube.com/user/UniversoBellotas" target="_blank"><img src="images/youtube.png" alt="YouTube"></a></li>
+                        <li><a href="https://ar.pinterest.com/UniversoBellotas/" target="_blank"><img src="images/pinterest.png" alt="Pinterest"></a></li>
+                        <li><a href="https://www.linkedin.com/company/universo-bellotas/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+                        <li><a href="https://es-la.facebook.com/universobellotas" target="_blank"><img src="images/facebook.png" alt="Facebook"></a></li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h2 class="form-title">Reserva - Universo Bellotas</h2>
+
+<form id="reservaForm" action="upload.php" method="POST" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="comprobante">Comprobante de Pago (Imagen o PDF, máx 10MB):</label>
+        <input type="file" id="comprobante" name="comprobante" accept=".jpg, .jpeg, .png, .pdf" required>
+    </div>
+
+    <button type="submit">Enviar Reserva</button>
+</form>
+
+
+    <script>
+        document.getElementById("reservaForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita la recarga de la página
+            const formData = new FormData(this);
+            
+            fetch("upload.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("mensaje").innerText = data;
+            })
+            .catch(error => {
+                document.getElementById("mensaje").innerText = "Error al enviar el formulario.";
+            });
+        });
+    </script>
+ <footer>
+    <div class="contact-info">
+        <p>Contacto: <a href="#" id="open-contact-modal-footer">info@universobellotas.com.ar</a></p>
+        <p>WhatsApp: <a href="https://wa.me/1162488210">11-6248-8210</a></p>
+        <!-- Enlace para abrir el modal de Preguntas Frecuentes -->
+        <p>Acceder a: <a href="#" id="open-faq-modal">Preguntas Frecuentes</a></p>
+    </div>
+    <p class="copyright">&copy; 2024 Universo Bellotas. Todos los derechos reservados.</p>
+</footer>    
+</body>
+</html>

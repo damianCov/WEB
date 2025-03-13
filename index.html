@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universo Bellotas - Inicio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <script src="js/scripts.js" defer></script>
     <script src="js/faq-modal.js" defer></script>
 
 </head>
 <body>
-    <a href="https://wa.me/1162488210" class="whatsapp-float" target="_blank">
+    <a href="https://bit.ly/UniversoBellotas" class="whatsapp-float" target="_blank">
         <img src="images/whatsapp-icon.png" alt="WhatsApp">
     </a>
+<!-- Botón flotante para Preguntas Frecuentes -->
+<button id="faq-floating-btn" class="floating-btn faq-btn">    
+    <img src="images/faq.png" alt="faq">
+    <!--❓-->
+</button>
 
     <header>
         <div class="header-container">
@@ -31,7 +37,6 @@
                         </ul>
                     </li>
                     <li><a href="galeria.html">Galería</a></li>
-                    <li><a href="#" id="open-faq-modal">FAQs</a>
                     <li><a href="contacto.html" id="open-contact-modal">Contacto</a></li>
                     <div class="social-links2">
                         <li><a href="https://instagram.com/universobellotas" target="_blank"><img src="images/instagram.png" alt="Instagram"></a></li>
@@ -90,7 +95,7 @@
                 <span class="error-message" id="error-servicio"></span>
             </div>
             <div>
-                <label for="fecha">Día/hora estimada del evento</label>
+                <label for="fecha">Día/hora estimada del eventos</label>
                 <input type="datetime-local" id="fecha" name="fecha" required>
                 <span class="error-message" id="error-fecha"></span>
             </div>
@@ -131,28 +136,34 @@
         <h1>Donde la diversión y el aprendizaje se unen para crear momentos inolvidables</h1>
         <div class="slides">
             <div class="slide active">
-                <img src="images/slider/imagen1.jpg" alt="Imagen 1">
+                <img src="images/slider/imagen1.png" alt="Imagen 1">
             </div>
             <div class="slide">
-                <img src="images/slider/imagen2.jpg" alt="Imagen 2">
+                <img src="images/slider/imagen2.png" alt="Imagen 2">
             </div>
             <div class="slide">
-                <img src="images/slider/imagen3.jpg" alt="Imagen 3">
+                <img src="images/slider/imagen3.png" alt="Imagen 3">
             </div>
             <div class="slide">
-                <img src="images/slider/imagen4.jpg" alt="Imagen 4">
+                <img src="images/slider/imagen4.png" alt="Imagen 4">
             </div>
             <div class="slide">
-                <img src="images/slider/imagen5.jpg" alt="Imagen 5">
+                <img src="images/slider/imagen5.png" alt="Imagen 5">
             </div>
             <div class="slide">
-                <img src="images/slider/imagen6.jpg" alt="Imagen 6">
+                <img src="images/slider/imagen6.png" alt="Imagen 6">
             </div>
             <div class="slide">
-                <img src="images/slider/imagen7.jpg" alt="Imagen 7">
+                <img src="images/slider/imagen7.png" alt="Imagen 7">
             </div>
             <div class="slide">
-                <img src="images/slider/imagen8.jpg" alt="Imagen 8">
+                <img src="images/slider/imagen8.png" alt="Imagen 8">
+            </div>
+             <div class="slide">
+                <img src="images/slider/imagen9.png" alt="Imagen 9">
+            </div>
+             <div class="slide">
+                <img src="images/slider/imagen10.png" alt="Imagen 10">
             </div>
         </div>
         <button class="slider-btn prev" onclick="moveSlide(-1)">&#8249;</button>
@@ -190,7 +201,7 @@
     <footer>
         <div class="contact-info">
             <p>Contacto: <a href="#" id="open-contact-modal-footer">info@universobellotas.com.ar</a></p>
-            <p>WhatsApp: <a href="https://wa.me/1162488210">11-6248-8210</a></p>
+            <p>WhatsApp: <a href="https://bit.ly/UniversoBellotas">11-6248-8210</a></p>
             <!-- Enlace para abrir el modal de Preguntas Frecuentes -->
             <p>Acceder a: <a href="#" id="open-faq-modal">Preguntas Frecuentes</a></p>
         </div>
@@ -201,45 +212,107 @@
     <div id="faq-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal" id="close-faq-modal">&times;</span>
-            <h2>Preguntas Frecuentes</h2>
-            <p>Valoramos la transparencia y la comodidad de nuestros clientes. Para brindarte una experiencia más fluida, hemos reunido una lista de preguntas frecuentes y sus respuestas correspondientes.</p>
+            <h2 class="faq-title">
+                <span class="emoji">⁉️</span> <u>Preguntas Frecuentes</u> <span class="emoji2">⁉️</span>
+            </h2>
+            <p>Para facilitar tu experiencia y resolver dudas frecuentes, reunimos una lista de preguntas con sus respuestas.</p>
             <div class="faq-container">
                 <div class="faq-item">
                     <button class="faq-question">
-                        ¿Cuál es el costo de los servicios y qué incluye?
+                        ¿Qué tipo de animaciones, talleres o espectáculos ofrecen?
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Nuestros precios varían según el tipo de servicio, duración y personalización. Todos los paquetes incluyen animadores profesionales, materiales necesarios y coordinación previa para garantizar que tu evento sea perfecto. Enviándonos tu consulta desde <a href="#" id="open-contact-modal">Formulario Contacto</a> podrás recibir un presupuesto personalizado con todas las especificaciones.
+                        En Universo Bellotas ofrecemos animaciones, talleres y espectáculos diseñados para infancias, familias, escuelas, jardines e instituciones corporativas. Las animaciones están adaptadas a distintas edades e incluyen actividades lúdicas que fomentan la creatividad y la diversión. Los talleres son experiencias interactivas que combinan arte, juego y educación ambiental, dirigidos tanto a niños como a adultos. Los espectáculos incluyen obras teatrales, circenses y de payasos con un enfoque en la conciencia ecológica, los valores sociales y el aprendizaje a través del juego. Todas nuestras propuestas están diseñadas para generar momentos únicos y significativos, integrando diversión y aprendizaje en cada evento. Puedes obtener más detalle en nuestra sección web de <a href="animaciones.html">Animaciones</a> o bien enviándonos tu consulta desde <a href="javascript:void(0)" id="open-contact-modal">Formulario Contacto</a>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        ¿Cuánto tiempo dura una animación típica?
+                        ¿Pueden adaptar las actividades a un tema específico?
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Las animaciones típicas tienen una duración de entre 1 y 2 horas, dependiendo del tipo de evento y la actividad contratada.
+                        Sí, personalizamos nuestras animaciones, talleres y espectáculos según la temática de tu evento, manteniendo siempre nuestro enfoque en el arte, el juego y el cuidado del medio ambiente. Al momento de contactarnos comentanos los intereses personalizados y adaptaremos el evento.
+                        
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        ¿Qué edad deben tener los niños para participar en las animaciones?
+                        ¿Cuánto duran las animaciones, talleres o espectáculos?
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Las actividades están diseñadas para niños de todas las edades, desde pequeños hasta adolescentes. Nos adaptamos a cada grupo.
+                        La duración varía según la actividad. Las animaciones ofrecemos opciones de 1hs o 2hs. Los talleres tienen una duración de 1hs. Los espectáculos presentan una performance de aproximadamente 45 minutos. Podemos personalizarlo a tus necesidades, consultanos.
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        ¿Ofrecen paquetes de animación que incluyan decoración y catering?
+                        ¿Se pueden combinar animaciones, talleres y espectáculos?
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Sí, ofrecemos paquetes completos que incluyen decoración temática, catering y animación, para que no tengas que preocuparte por nada.
+                        Sí, podemos armar propuestas combinadas para que tu evento tenga una experiencia completa y dinámica. Consúltanos para diseñar la mejor opción según tu necesidad. Dependerá por supuesto de la amplitud horaria que tengas previsto. Al momento de contactarnos hacenos referencia y adaptaremos nuestro servicio.
                     </div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿En qué zonas brindan sus animaciones, talleres y espectáculos?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Trabajamos en Ciudad de Buenos Aires, Gran Buenos Aires y zonas cercanas. Si tu evento no es en la Ciudad de Buenos Aires cotizaremos el viático de manera separada. Si tu evento es en otra ubicación, consúltanos y evaluaremos la posibilidad de traslado.
+                    </div>
+                </div>
+                 
+                  <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Disponen de servicios adicionales? ¿Cuáles?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Sí, ofrecemos entre otras cosas: Ambientación temática. Catering dulce y/o salado. Tortas temáticas. Suvenires temáticos. Maquillaje Artístico.  Al momento de contactarnos hacenos referencia y realizaremos un presupuesto adaptado.
+                     </div>   
+                    </div>        
+                     <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Cómo verifico la disponibilidad para mi fecha y hora?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Podés consultarnos a través de nuestro <a href="javascript:void(0)" id="open-contact-modal">Formulario Contacto</a> o bien a nuestro <a href="https://bit.ly/UniversoBellotas"> WhatsApp</a>. Te recomendamos hacerlo con anticipación para asegurar tu fecha.
+                     </div>   
+                    </div>
+                     <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Cuál es el costo de los servicios y qué incluye?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Nuestros precios varían según el tipo de servicio, duración y personalización. Todos los paquetes incluyen animadores profesionales, materiales necesarios y coordinación previa para garantizar que tu evento sea perfecto. Enviándonos tu consulta desde <a href="javascript:void(0)" id="open-contact-modal">Formulario Contacto</a> o bien a nuestro <a href="https://bit.ly/UniversoBellotas"> WhatsApp</a>  podrás recibir un presupuesto personalizado con todas las especificaciones.
+                     </div>  
+                    </div> 
+                     
+                 <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Cómo reservo y cuál es la política de pago?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Para reservar, se requiere una seña. El saldo se abona antes o el día del evento. Aceptamos transferencias y otros medios de pago. Al momento de contactarnos y recibir nuestras propuestas te informaremos detalladamente.
+                     </div> 
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            ¿Ofrecen servicios personalizados para empresas, organizaciones educativas o instituciones?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Sí, tenemos nuestras secciones exclusivas en la WEB. Diseñamos propuestas específicas para eventos <a href="corporativos.html"> Corporativos</a> y en <a href="colegios-instituciones.html"> Escuelas y Jardines</a>, adaptando las actividades a cada necesidad.
+                     </div>  
+                    </div>        
+                     
+                </div>
+
             </div>
         </div>
     </div>

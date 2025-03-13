@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - Universo Bellotas</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <script src="js/scripts.js" defer></script>
     <script src="js/faq-modal.js" defer></script>
     <script src="js/faq-modal.js" defer></script>
 
 </head>
 <body>
-    <a href="https://wa.me/1162488210" class="whatsapp-float" target="_blank">
+    <a href="https://bit.ly/UniversoBellotas" class="whatsapp-float" target="_blank">
         <img src="images/whatsapp-icon.png" alt="WhatsApp">
     </a>
+    <!-- Botón flotante para Preguntas Frecuentes -->
+<button id="faq-floating-btn" class="floating-btn faq-btn">    
+    <img src="images/faq.png" alt="faq">
+    <!--❓-->
+</button>
 
     <header>
         <div class="header-container">
@@ -95,7 +101,7 @@
                 <span class="error-message" id="error-fecha"></span>
             </div>
             <div>
-                <label for="zona-evento">Zona a Realizar Evento</label>
+                <label for="zona-evento">Zona a Realizar el Evento</label>
                 <select id="zona-evento" name="zona-evento" required>
                     <option value="" disabled selected>Selecciona una opción</option>
                     <option value="dentro-caba">Dentro de CABA</option>
@@ -121,10 +127,10 @@
     <main>
         <section class="about-us">
             <div class="about-text">
-                <h1>En Universo Bellotas nos apasiona diseñar y producir eventos y espectáculos que combinan juego, arte y conciencia ambiental.</h1>
+                <h1><img src="images/favicon.png" alt= "Emoji Bellota" width="25">Universo Bellotas<img src="images/favicon.png" alt= "Emoji Bellota" width="25"></h1>
                 <div class="divider"></div>
                 <p>
-                    Creemos en la fuerza del arte para inspirar cambios positivos, por eso trabajamos día a día para crear experiencias enriquecedoras que fomenten la creatividad y el aprendizaje.
+                    Nos apasiona diseñar y producir eventos y espectáculos que combinan juego, arte y conciencia ambiental. Creemos en la fuerza del arte para inspirar cambios positivos, por eso trabajamos día a día para crear experiencias enriquecedoras que fomenten la creatividad y el aprendizaje.
                 </p>
                 <div class="features">
                     <div class="feature">
@@ -139,7 +145,7 @@
             </div>
             <div class="about-images">
                 <img src="images/main-image.jpg" alt="Camión en operaciones" class="main-image">
-                <img src="images/secondary-image.jpg" alt="Operador logístico" class="secondary-image">
+                
             </div>
         </section>
         
@@ -151,7 +157,7 @@
     <footer>
         <div class="contact-info">
             <p>Contacto: <a href="#" id="open-contact-modal-footer">info@universobellotas.com.ar</a></p>
-            <p>WhatsApp: <a href="https://wa.me/1162488210">11-6248-8210</a></p>
+            <p>WhatsApp: <a href="https://bit.ly/UniversoBellotas">11-6248-8210</a></p>
             <!-- Enlace para abrir el modal de Preguntas Frecuentes -->
             <p>Acceder a: <a href="#" id="open-faq-modal">Preguntas Frecuentes</a></p>
         </div>
