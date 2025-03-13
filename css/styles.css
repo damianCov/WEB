@@ -2136,19 +2136,25 @@ html, body {
         font-size: 1rem;
     }
 }
+
 /* Modal de Preguntas Frecuentes */
+.modal-content {
+    background-color: #ffffff;
+}
 .modal-content h2{
     text-align: center;
     color: #002060dd;
+   
 }
 
 .faq-container {
     margin-top: 20px;
+   
 }
 
 .faq-item {
-    border: 1px solid #ffcc00;
-    border-radius: 5px;
+    border: 1.5px solid #031e65ab;
+    border-radius: 8px;
     margin-bottom: 10px;
     transition: all 0.3s ease;
 }
@@ -2164,9 +2170,11 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #855454;
+    color: #761605;
     font-weight: bold;
 }
+
+
 
 .faq-toggle {
     font-size: 1.2rem;
@@ -2175,7 +2183,7 @@ html, body {
 .faq-answer {
     display: none; /* Cambia a 'block' para que todas las respuestas sean visibles */
     padding: 10px 15px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     color: #333;
     line-height: 1.5;
 }
@@ -2184,11 +2192,13 @@ html, body {
 }
 .faq-item.active .faq-question {
     background-color: #f5d689; /* Color de fondo para la pregunta activa */
+    border-radius: 5px;
     color: #002060; /* Cambia el color del texto */
     font-weight: bold; /* Puedes hacerlo más destacado */
     border-left: 4px solid #ff6f00; /* Añadir un borde decorativo opcional */
     transition: background-color 0.3s ease, color 0.3s ease; /* Efecto suave */
-}
+
+} 
 /* ===== Botón Flotante para Preguntas Frecuentes ===== */
 .faq-btn {
     position: fixed;
@@ -2318,5 +2328,46 @@ html, body {
     #reservaForm input {
         font-size: 0.9rem;
         padding: 10px;
+    }
+}
+.faq-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #002060;
+    animation: pulse 3s infinite; /* Pulsación periódica */
+    
+}
+
+.faq-title .emoji {
+    display: inline-block;
+    
+    transform: rotate(-185deg); /* 🔄 Ajusta el ángulo de inclinación */
+    transition: transform 0.3s ease-in-out;
+   
+   
+    
+}
+
+.faq-title .emoji:hover {
+    transform: rotate(15deg) scale(1.1); /* 🔄 Se inclina al pasar el mouse */
+    
+}
+.faq-title .emoji2 {
+    display: inline-block;
+    transform: rotate(-15deg); /* 🔄 Ajusta el ángulo de inclinación */
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-title .emoji2:hover {
+    transform: rotate(185deg) scale(1.1); /* 🔄 Se inclina al pasar el mouse */
+}
+/* 🔹 Animación de pulso */
+@keyframes pulse {
+    0% {
+        transform: rotate(0deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(3deg) scale(1.2);
     }
 }

@@ -1046,3 +1046,58 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// ===== Modal para Festivales =====
+document.addEventListener("DOMContentLoaded", () => {
+    const festivalesModal = document.getElementById("festivales-modal");
+    const openFestivalesModal = document.querySelector(".open-festivales-modal");
+    const closeFestivalesModal = document.getElementById("close-festivales-modal");
+
+    // Verificar si los elementos existen
+    if (!festivalesModal || !openFestivalesModal || !closeFestivalesModal) {
+        console.error("Modal o botones no encontrados para Festivales");
+        return;
+    }
+
+    // Abrir el modal
+    openFestivalesModal.addEventListener("click", (event) => {
+        event.preventDefault();
+        festivalesModal.style.display = "block";
+    });
+
+    // Cerrar el modal
+    closeFestivalesModal.addEventListener("click", () => {
+        festivalesModal.style.display = "none";
+    });
+
+    // Cerrar el modal al hacer clic fuera del contenido
+    window.addEventListener("click", (event) => {
+        if (event.target === festivalesModal) {
+            festivalesModal.style.display = "none";
+        }
+    });
+
+    // Manejo de imágenes en el modal
+    const thumbnailsFestivales = document.querySelectorAll("#festivales-modal .thumbnail-gallery img");
+    const featuredImageFestivales = document.getElementById("featured-image-festivales");
+
+    // Agregar eventos a las miniaturas
+    thumbnailsFestivales.forEach((thumbnail) => {
+        thumbnail.addEventListener("click", () => {
+            console.log("Miniatura clickeada:", thumbnail.src);
+            const newSrc = thumbnail.src; // Obtiene la fuente de la miniatura
+            featuredImageFestivales.src = newSrc; // Cambia la imagen grande
+        });
+    });
+
+    // Botón para abrir el modal de contacto desde el modal de Festivales
+    const openContactFromFestivales = document.getElementById("open-contact-modal-from-festivales");
+    const contactModal = document.getElementById("contact-modal");
+
+    if (openContactFromFestivales && contactModal) {
+        openContactFromFestivales.addEventListener("click", (event) => {
+            event.preventDefault();
+            festivalesModal.style.display = "none"; // Cerrar el modal de Festivales
+            contactModal.style.display = "block"; // Abrir el modal de contacto
+        });
+    }
+});
